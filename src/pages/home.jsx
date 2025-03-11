@@ -163,38 +163,38 @@ With a team of experienced digital marketing strategists, SEO experts, content c
             <img src={webImg} alt="Web Development" className="service-img" />
             <h3>Web Development</h3>
             <p>Custom website solutions wordpress and coding</p>
-            <button className="know-more-button">Know More</button>
+            <button className="know-more-button"  onClick={()=>navigate('/services')}>Know More</button>
           </div>
           <div className="service-card">
             <img src={seoImg} alt="Mobile Apps" className="service-img" />
             <h3>Search Engine Optimization (SEO) </h3>
             <p>SEO Optimization - To Rank Up businesses</p>
-            <button className="know-more-button">Know More</button>
+            <button className="know-more-button"   onClick={()=>navigate('/services')}>Know More</button>
           </div>
           <div className="service-card">
             <img src={ssm} alt="Cloud Solutions" className="service-img" />
             <h3>Social Media Marketing (SMM)</h3>
             <p>Scalable cloud infrastructure...</p>
-            <button className="know-more-button">Know More</button>
+            <button className="know-more-button"  onClick={()=>navigate('/services')}>Know More</button>
           </div>
           <div className="service-card">
             <img src={ppc} alt="Cloud Solutions" className="service-img" />
             <h3>Pay-Per-Click (PPC) Advertising </h3>
             <p>Scalable cloud infrastructure...</p>
-            <button className="know-more-button">Know More</button>
+            <button className="know-more-button"   onClick={()=>navigate('/services')}>Know More</button>
           </div>
          
           <div className="service-card">
             <img src={ecm} alt="Cloud Solutions" className="service-img" />
             <h3> E-commerce & Marketplace Marketing</h3>
             <p>Scalable cloud infrastructure...</p>
-            <button className="know-more-button">Know More</button>
+            <button className="know-more-button"   onClick={()=>navigate('/services')}>Know More</button>
           </div>
           <div className="service-card">
             <img src={brand} alt="Cloud Solutions" className="service-img" />
             <h3>Branding & Reputation Management</h3>
             <p>Scalable cloud infrastructure...</p>
-            <button className="know-more-button">Know More</button>
+            <button className="know-more-button"  onClick={()=>navigate('/services')}>Know More</button>
           </div>
           
         </div>
