@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../css/services.css";
 
 export const Services = () => {
   const navigate = useNavigate();
+
+  // State to manage the visibility of feature details
+  const [activeFeature, setActiveFeature] = useState(null);
+
+  // Service details
+  const serviceDetails = {
+    "Website Development": "Website development involves creating websites from scratch, ensuring they are functional, user-friendly, and responsive.",
+    "SEO Optimization": "SEO Optimization improves your website's visibility on search engines, driving more organic traffic to your site.",
+    "Digital Marketing": "Digital marketing strategies like SEO, PPC, social media marketing, and content marketing help you reach and engage your audience online.",
+    "Graphic Design": "Graphic design services involve creating visual content such as logos, branding, brochures, and website designs to communicate your brand.",
+    "Content Creation": "Content creation includes writing blog posts, designing infographics, and creating multimedia content that engages your audience.",
+    "Social Media Marketing": "Social media marketing helps you build your brand's presence on platforms like Facebook, Instagram, and LinkedIn, engaging your audience.",
+    "App Development": "App development services for both iOS and Android platforms, providing custom solutions tailored to your business needs.",
+    "E-Commerce Solutions": "E-commerce solutions include building and maintaining online stores, offering product management and secure payment gateways.",
+    "Branding & Reputation Management": "Branding & Reputation Management involves developing a strong brand identity and managing your brand's online reputation.",
+    "PPC Advertising": "PPC (Pay-Per-Click) advertising involves paid advertisements that drive traffic to your website through paid search engine ads.",
+    "E-Commerce & Marketplace Marketing": "E-Commerce & Marketplace Marketing involves advertising and optimizing your presence on e-commerce platforms like Amazon, eBay, and Shopify.",
+  };
+
+  // Function to handle feature click
+  const handleFeatureClick = (feature) => {
+    if (activeFeature === feature) {
+      setActiveFeature(null); // Toggle off if the same feature is clicked again
+    } else {
+      setActiveFeature(feature); // Show details for clicked feature
+    }
+  };
 
   return (
     <div className="services-page">
@@ -18,14 +45,26 @@ export const Services = () => {
       {/* Main Services Section */}
       <section className="main-services">
         <div className="services-container">
+          {/* Website Development */}
           <div className="service-card">
             <div className="service-icon">🖥️</div>
-            <h2>Web Development</h2>
+            <h2>Website Development</h2>
             <ul className="service-features">
-              <li>Custom Website Design</li>
-              <li>E-Commerce Solutions</li>
-              <li>CMS Integration</li>
-              <li>API Development</li>
+              {["Website Development", "E-Commerce Solutions", "App Development"].map((feature) => (
+                <li
+                  key={feature}
+                  onClick={() => handleFeatureClick(feature)}
+                  className={activeFeature === feature ? 'active-feature' : ''}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {feature}
+                  {activeFeature === feature && (
+                    <p className={activeFeature === feature ? 'active-description' : ''}>
+                      {serviceDetails[feature]}
+                    </p>
+                  )}
+                </li>
+              ))}
             </ul>
             <button 
               className="service-cta"
@@ -35,14 +74,26 @@ export const Services = () => {
             </button>
           </div>
 
+          {/* Graphic Design */}
           <div className="service-card">
             <div className="service-icon">📱</div>
-            <h2>Mobile App Development</h2>
+            <h2>Graphic Designing</h2>
             <ul className="service-features">
-              <li>iOS & Android Apps</li>
-              <li>Cross-Platform Solutions</li>
-              <li>UI/UX Design</li>
-              <li>App Maintenance</li>
+              {["Graphic Design", "Branding & Reputation Management"].map((feature) => (
+                <li
+                  key={feature}
+                  onClick={() => handleFeatureClick(feature)}
+                  className={activeFeature === feature ? 'active-feature' : ''}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {feature}
+                  {activeFeature === feature && (
+                    <p className={activeFeature === feature ? 'active-description' : ''}>
+                      {serviceDetails[feature]}
+                    </p>
+                  )}
+                </li>
+              ))}
             </ul>
             <button 
               className="service-cta"
@@ -52,14 +103,26 @@ export const Services = () => {
             </button>
           </div>
 
+          {/* Digital Marketing */}
           <div className="service-card">
             <div className="service-icon">📈</div>
             <h2>Digital Marketing</h2>
             <ul className="service-features">
-              <li>SEO Optimization</li>
-              <li>Social Media Management</li>
-              <li>PPC Advertising</li>
-              <li>Content Strategy</li>
+              {["Digital Marketing", "SEO Optimization", "Social Media Marketing", "PPC Advertising"].map((feature) => (
+                <li
+                  key={feature}
+                  onClick={() => handleFeatureClick(feature)}
+                  className={activeFeature === feature ? 'active-feature' : ''}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {feature}
+                  {activeFeature === feature && (
+                    <p className={activeFeature === feature ? 'active-description' : ''}>
+                      {serviceDetails[feature]}
+                    </p>
+                  )}
+                </li>
+              ))}
             </ul>
             <button 
               className="service-cta"
@@ -69,14 +132,26 @@ export const Services = () => {
             </button>
           </div>
 
+          {/* Content Creation */}
           <div className="service-card">
             <div className="service-icon">☁️</div>
-            <h2>Cloud Solutions</h2>
+            <h2>Content Creation</h2>
             <ul className="service-features">
-              <li>Cloud Migration</li>
-              <li>Server Management</li>
-              <li>Data Security</li>
-              <li>24/7 Monitoring</li>
+              {["Content Creation", "E-Commerce & Marketplace Marketing"].map((feature) => (
+                <li
+                  key={feature}
+                  onClick={() => handleFeatureClick(feature)}
+                  className={activeFeature === feature ? 'active-feature' : ''}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {feature}
+                  {activeFeature === feature && (
+                    <p className={activeFeature === feature ? 'active-description' : ''}>
+                      {serviceDetails[feature]}
+                    </p>
+                  )}
+                </li>
+              ))}
             </ul>
             <button 
               className="service-cta"
@@ -95,10 +170,6 @@ export const Services = () => {
           <div className="special-card">
             <h3>UI/UX Design</h3>
             <p>User-centered interface design</p>
-          </div>
-          <div className="special-card">
-            <h3>Brand Strategy</h3>
-            <p>Comprehensive branding solutions</p>
           </div>
           <div className="special-card">
             <h3>Data Analytics</h3>

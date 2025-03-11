@@ -62,12 +62,13 @@
     color: #2E86C1;
   }
   
+  
   input, select, textarea {
     padding: 0.8rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
-    width: 50vw;
+    width: 100%;
   }
   
   select {

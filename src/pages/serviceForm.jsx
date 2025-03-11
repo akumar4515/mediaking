@@ -19,10 +19,10 @@ export const ServiceForm = () => {
   const [errors, setErrors] = useState({});
 
   const services = [
-    'Web Development',
-    'Mobile App Development',
+    'Website Development',
     'Digital Marketing',
-    'Cloud Solutions',
+    'Graphic Designing',
+    'Content Creation',
     'UI/UX Design',
     'Data Analytics'
   ];
@@ -66,7 +66,7 @@ export const ServiceForm = () => {
   return (
     <div className="service-form-page">
       <section className="form-hero">
-        <div className="hero-contents">
+        <div className="hero-contentt">
           <h1>Service Inquiry</h1>
           <p>Let us know how we can assist you</p>
         </div>

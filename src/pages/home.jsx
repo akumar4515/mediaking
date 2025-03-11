@@ -105,7 +105,7 @@ export const Home = () => {
               <source src={bg2} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <div className="hero-content">
+            <div className="hero-contents">
               <h1>Welcome to Mediaking</h1>
               <p>Innovative solutions for your business needs</p>
               <button className="cta-button">Learn More</button>
@@ -116,7 +116,7 @@ export const Home = () => {
               <source src={bg3} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <div className="hero-content">
+            <div className="hero-contents">
               <h1>Cutting-Edge Technology</h1>
               <p>Empowering your business with the latest tools</p>
               <button className="cta-button">Learn More</button>
@@ -127,7 +127,7 @@ export const Home = () => {
               <source src={bg4} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <div className="hero-content">
+            <div className="hero-contents">
               <h1>Your Success, Our Mission</h1>
               <p>Driving growth through tailored strategies</p>
               <button className="cta-button">Learn More</button>
