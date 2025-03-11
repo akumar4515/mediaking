@@ -1,0 +1,186 @@
+/* About Page Styles */
+.about-page {
+    font-family: 'Arial', sans-serif;
+  
+  }
+  
+  /* Hero Section */
+  .about-hero {
+    background: linear-gradient(rgba(150, 191, 218, 0.7), rgba(78, 73, 114, 0.4)),
+      url('../assets/aboutus.jpeg');
+    background-size: cover;
+    height: 60vh;
+    width:100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 5%;
+    z-index: -1;
+  }
+  
+  .about-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Our Story Section */
+  .our-story {
+    width: 100vw;
+    padding: 4rem 5%;
+    background:linear-gradient(90deg,rgb(29, 71, 72), rgb(8, 8, 54) );
+  }
+  .hero-content{
+    z-index: 2;
+  }
+  .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    color:white;
+  }
+  
+  .text-content {
+    flex: 1 1 60%;
+    min-width: 300px;
+  }
+  
+  .image-content {
+    flex: 1 1 35%;
+    min-width: 280px;
+  }
+  
+  .highlight-text {
+    color: #d55815;
+    font-size: 1.25rem;
+    margin: 1.5rem 0;
+    font-weight: 600;
+  }
+  .story-details p {
+    color: #a6b2be;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  
+  .timeline-card {
+    background:linear-gradient(120deg,rgb(6, 14, 53),rgb(4, 38, 9)) ;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  .timeline-card:hover{
+    box-shadow: 1px 1px 5px 2px rgb(183, 156, 156);
+    transition-duration: 0.5s;
+  }
+  
+  .milestone {
+    padding: 1.5rem;
+    border-left: 3px solid #28B463;
+    margin-bottom: 2rem;
+  }
+  
+  .milestone h3 {
+    color: #2E86C1;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Mission Section */
+  .mission-section {
+    width:100vw;
+    padding: 4rem 5%;
+    background:linear-gradient(90deg,rgb(3, 45, 46), rgb(7, 21, 52) );
+  }
+
+  .mission-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .mission-card {
+    flex: 1 1 45%;
+    min-width: 300px;
+    background:linear-gradient(120deg,rgb(82, 103, 207),rgb(78, 111, 83)) ;
+    padding: 2rem;
+    color:white;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 1px 1px 5px 2px rgb(148, 115, 232);
+    transition-duration: 0.5s;
+  }
+  
+  .icon-box {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Values Section */
+  .values-section {
+    width:100vw;
+    padding: 4rem 5%;
+    background:linear-gradient(90deg,rgb(10, 59, 60), rgb(3, 7, 49) );
+    text-align: center;
+  }
+  
+  .values-section h2 {
+    color: #bfcdd7;
+    margin-bottom: 3rem;
+  }
+  
+  .values-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .value-card {
+    flex: 1 1 22%;
+    min-width: 250px;
+    background:linear-gradient(120deg,rgb(18, 28, 78),rgb(78, 111, 83)) ;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    color:rgb(208, 222, 227)
+  }
+  
+  .value-card:hover{
+    box-shadow: 1px 1px 5px 2px rgb(183, 156, 156);
+    transition-duration: 0.5s;
+  }
+  .value-card h4 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .section-container {
+      flex-direction: column;
+    }
+    
+    .mission-card {
+      flex: 1 1 100%;
+    }
+    
+    .value-card {
+      flex: 1 1 100%;
+    }
+    
+    .about-hero h1 {
+      font-size: 2rem;
+    }
+  }

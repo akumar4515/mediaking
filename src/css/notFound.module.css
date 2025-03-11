@@ -1,0 +1,10 @@
+.not-found-container{
+       text-Align: center;
+        padding: 2rem;
+        min-Height: 100vh;
+        display: flex;
+        flex-Direction: column;
+        justify-Content: center;
+        align-items:center;
+ 
+}
