@@ -5,6 +5,7 @@ import { NotFound } from './pages/NotFound.jsx';
 import { Navigation } from './pages/navigation.jsx';
 import { Footer } from './pages/footer.jsx';
 import { About } from './pages/about.jsx';
+import ScrollToTop from "./pages/scrollToTop.jsx";
 import { Services } from './pages/services.jsx';
 import { Contact } from './pages/contact.jsx';
 import { ServiceForm } from './pages/serviceForm.jsx';
@@ -13,6 +14,7 @@ function App() {
     <>
     
     <Router>
+    <ScrollToTop /> 
     <Navigation/>
       <Routes>
         <Route path='/' element={<Home/>}/>

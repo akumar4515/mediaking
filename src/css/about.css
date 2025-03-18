@@ -54,14 +54,16 @@
   }
   
   .highlight-text {
-    color: #d55815;
+    color: #efd8cc;
     font-size: 1.25rem;
     margin: 1.5rem 0;
     font-weight: 600;
+    text-align: justify;
   }
   .story-details p {
     color: #a6b2be;
     line-height: 1.8;
+    text-align:justify ;
     margin-bottom: 1.5rem;
   }
   
@@ -115,6 +117,10 @@
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s;
+  }
+  .mission-card p{
+    text-align: justify;
+
   }
   
   .mission-card:hover {
@@ -187,3 +193,56 @@
       font-size: 2rem;
     }
   }
+
+  /* Add these to about.css */
+.about-hero .hero-content {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.about-hero .hero-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.our-story .section-container {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+.our-story .section-container.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mission-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.mission-container.visible .mission-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mission-container.visible .mission-card:nth-child(1) { transition-delay: 0.2s; }
+.mission-container.visible .mission-card:nth-child(2) { transition-delay: 0.4s; }
+
+.value-card {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+}
+
+.values-container.visible .value-card {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.values-container.visible .value-card:nth-child(1) { transition-delay: 0.1s; }
+.values-container.visible .value-card:nth-child(2) { transition-delay: 0.2s; }
+.values-container.visible .value-card:nth-child(3) { transition-delay: 0.3s; }
+.values-container.visible .value-card:nth-child(4) { transition-delay: 0.4s; }

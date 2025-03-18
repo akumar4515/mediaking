@@ -32,7 +32,15 @@
     /* backdrop-filter: blur(10px);  */
   }
   .logo{
+    height:40px;
     cursor: pointer;
+    object-fit: cover;
+  }
+  .logo img{
+    height:100%;
+    object-fit: cover;
+   
+
   }
   .nav-links {
     display: flex;
@@ -296,12 +304,21 @@
    /* backdrop-filter: blur(10px);  */
  
   
+ 
+  
+  }
+  .about-content.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   .about-content{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
    
    
 
@@ -353,9 +370,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ddd;
-    height:300px;
-    width:300px;
+    /* background-color: #ddd; */
+    height:600px;
     /* object-fit: cover; */
     border-radius: 10px;;
   }
@@ -683,7 +699,6 @@ height:70vh;
     }
     .about-image {
       flex: 1;
-      background-color: #ddd;
       height:500px;
       width:90vw;
       /* object-fit: cover; */
@@ -704,3 +719,58 @@ height:70vh;
       width:90vw;
     }
   }
+
+  /* animation */
+/* Services Section Animation */
+.service-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.service-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Clients Section Animation */
+.clients-container {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s ease;
+}
+
+.clients-container.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Why Choose Us Section */
+.choose-container {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.8s ease;
+}
+
+.choose-container.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered animation for reason cards */
+.reason-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.choose-container.visible .reason-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.choose-container.visible .reason-card:nth-child(1) { transition-delay: 0.2s; }
+.choose-container.visible .reason-card:nth-child(2) { transition-delay: 0.4s; }
+.choose-container.visible .reason-card:nth-child(3) { transition-delay: 0.6s; }
+.choose-container.visible .reason-card:nth-child(4) { transition-delay: 0.8s; }
+

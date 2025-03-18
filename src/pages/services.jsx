@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import  useScrollAnimation  from './ScrollAnimation'; // Import the hook
 import "../css/services.css";
 
 export const Services = () => {
   const navigate = useNavigate();
-
-  // State to manage the visibility of feature details
   const [activeFeature, setActiveFeature] = useState(null);
 
-  // Service details
+  // Scroll animation hooks for each section
+  const [heroRef, heroVisible] = useScrollAnimation();
+  const [servicesRef, servicesVisible] = useScrollAnimation();
+  const [additionalServicesRef, additionalServicesVisible] = useScrollAnimation();
+
+  // Service details (same as before)
   const serviceDetails = {
     "Website Development": "Website development involves creating websites from scratch, ensuring they are functional, user-friendly, and responsive.",
     "SEO Optimization": "SEO Optimization improves your website's visibility on search engines, driving more organic traffic to your site.",
@@ -23,7 +27,6 @@ export const Services = () => {
     "E-Commerce & Marketplace Marketing": "E-Commerce & Marketplace Marketing involves advertising and optimizing your presence on e-commerce platforms like Amazon, eBay, and Shopify.",
   };
 
-  // Function to handle feature click
   const handleFeatureClick = (feature) => {
     if (activeFeature === feature) {
       setActiveFeature(null); // Toggle off if the same feature is clicked again
@@ -35,16 +38,16 @@ export const Services = () => {
   return (
     <div className="services-page">
       {/* Hero Section */}
-      <section className="services-hero">
-        <div className="hero-content">
+      <section className="services-hero" ref={heroRef}>
+        <div className={`hero-content ${heroVisible ? "visible" : ""}`}>
           <h1>Our Services</h1>
           <p>Expert Solutions for Digital Success</p>
         </div>
       </section>
 
       {/* Main Services Section */}
-      <section className="main-services">
-        <div className="services-container">
+      <section className="main-services" ref={servicesRef}>
+        <div className={`services-container ${servicesVisible ? "visible" : ""}`}>
           {/* Website Development */}
           <div className="service-card">
             <div className="service-icon">🖥️</div>
@@ -164,16 +167,18 @@ export const Services = () => {
       </section>
 
       {/* Additional Services Section */}
-      <section className="additional-services">
-        <h2>Specialized Solutions</h2>
-        <div className="specialized-container">
-          <div className="special-card">
-            <h3>UI/UX Design</h3>
-            <p>User-centered interface design</p>
-          </div>
-          <div className="special-card">
-            <h3>Data Analytics</h3>
-            <p>Business intelligence insights</p>
+      <section className="additional-services" ref={additionalServicesRef}>
+        <div className={`specialized-container ${additionalServicesVisible ? "visible" : ""}`}>
+          <h2>Specialized Solutions</h2>
+          <div className="specialized-grid">
+            <div className="special-card">
+              <h3>UI/UX Design</h3>
+              <p>User-centered interface design</p>
+            </div>
+            <div className="special-card">
+              <h3>Data Analytics</h3>
+              <p>Business intelligence insights</p>
+            </div>
           </div>
         </div>
       </section>

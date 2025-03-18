@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from '@emailjs/browser';
 import Slider from "react-slick";
@@ -12,10 +13,11 @@ import ecm from '../assets/ecm.jpg';
 import ppc from '../assets/ppc.webp';
 import ssm from '../assets/cm.png';
 import brand from '../assets/brand.jpg';
-import bg2 from '../assets/bg2.mp4'; // Add more videos for the slider
-import bg3 from '../assets/bg3.mp4';
-import bg4 from '../assets/bg4.mp4';
-import bg5 from '../assets/bg5.mp4';
+import web from '../assets/web.mp4'; // Add more videos for the slider
+import app from '../assets/app.mp4';
+import software from '../assets/software.mp4';
+import graphic from '../assets/graphic.mp4';
+import digital from '../assets/digital.mp4';
 import amzn from '../assets/amzn.jpg';
 import ggl from '../assets/google.jpg';
 import acntr from '../assets/acntr.jpg';
@@ -26,6 +28,8 @@ import fb from '../assets/facebook.png';
 import insta from '../assets/instagram.png';
 import lnkdn from '../assets/linkedin.png';
 import x from '../assets/twitter.png';
+import useScrollAnimation from "./ScrollAnimation";
+
 
 export const Home = () => {
   const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
@@ -33,47 +37,53 @@ export const Home = () => {
   const CompanyTemplateId=process.env.REACT_APP_EMAILJS_COMPANY_TEMPLATE_ID;
   const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
   const navigate = useNavigate();
+
+  const [aboutRef, aboutVisible] = useScrollAnimation();
+  const [servicesRef, servicesVisible] = useScrollAnimation();
+  const [clientsRef, clientsVisible] = useScrollAnimation();
+  const [whyChooseRef, whyChooseVisible] = useScrollAnimation();
  
+
+  const [submitMsg,setSubmitMsg]=useState("");
+  const [sending,setSending]=useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    setSending(true);
+    setSubmitMsg("");
     try {
-      const timestamp = new Date().toLocaleString(); 
+      const timestamp = new Date().toLocaleString();
       await emailjs.send(
-        serviceID,               // 1. Service ID
-        CompanyTemplateId,       // 2. Template ID
-        {                        // 3. Template Parameters
+        serviceID,
+        CompanyTemplateId,
+        {
           user_name: e.target.user_name.value,
           user_email: e.target.user_email.value,
           user_tel: e.target.user_tel.value,
           user_message: e.target.user_message.value,
-          current_timestamp:timestamp
-
+          current_timestamp: timestamp,
         },
-        publicKey               // 4. Public Key
+        publicKey
       );
-      // 2. Send confirmation email to USER
       const userEmail = e.target.user_email.value;
       await emailjs.send(
-        serviceID,              // Correct parameter order:
-        UserTemplateID,         // 1. serviceID
-        {                       // 2. templateID
-          to_email: userEmail,  // 3. template parameters
+        serviceID,
+        UserTemplateID,
+        {
+          to_email: userEmail,
           user_name: e.target.user_name.value,
-          message: "Thank you for contacting us!"
+          message: 'Thank you for contacting us!',
         },
-        publicKey              // 4. publicKey
+        publicKey
       );
-      console.log("email sent");
-  
-      // navigate('/thank-you');
+      setSending(false);
+      console.log("email Sent")
+      setSubmitMsg("Thanks For Contacting Us")
     } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to send message");
-  
+      console.error('Error:', error);
+      alert('Failed to send message');
     }
-  }
+  };
 
   const CustomArrow = ({ onClick, direction }) => (
     <button 
@@ -102,34 +112,56 @@ export const Home = () => {
         <Slider {...sliderSettings}>
           <div className="hero-slide">
             <video autoPlay loop muted playsInline className="bg-video">
-              <source src={bg2} type="video/mp4" />
+              <source src={digital} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="hero-contents">
-              <h1>Welcome to Mediaking</h1>
-              <p>Innovative solutions for your business needs</p>
+              <h1>Mediaking Is Best In Digital Marketing</h1>
+              <p>We help your business to grow faster</p>
               <button className="cta-button">Learn More</button>
             </div>
           </div>
           <div className="hero-slide">
             <video autoPlay loop muted playsInline className="bg-video">
-              <source src={bg3} type="video/mp4" />
+              <source src={app} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="hero-contents">
-              <h1>Cutting-Edge Technology</h1>
-              <p>Empowering your business with the latest tools</p>
+              <h1>Mediaking Is Best In App Development Service</h1>
+              <p>We create mobile app which is very easy to use by everyone</p>
               <button className="cta-button">Learn More</button>
             </div>
           </div>
           <div className="hero-slide">
             <video autoPlay loop muted playsInline className="bg-video">
-              <source src={bg4} type="video/mp4" />
+              <source src={graphic} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="hero-contents">
-              <h1>Your Success, Our Mission</h1>
-              <p>Driving growth through tailored strategies</p>
+              <h1>Mediaking Is Best In Graphic Design Service</h1>
+              <p>We Deliver You Creative & Catchy Post For Your Business</p>
+              <button className="cta-button">Learn More</button>
+            </div>
+          </div>
+          <div className="hero-slide">
+            <video autoPlay loop muted playsInline className="bg-video">
+              <source src={web} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="hero-contents">
+              <h1>Beautiful ,Innovative & Effective Website</h1>
+              <p>We Promote Your All Goods Online & Generate Leads From Website</p>
+              <button className="cta-button">Learn More</button>
+            </div>
+          </div>
+          <div className="hero-slide">
+            <video autoPlay loop muted playsInline className="bg-video">
+              <source src={software} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="hero-contents">
+              <h1>Mediaking Is Best In Software Development Service</h1>
+              <p>We Craft Software To Simplify Your Workflow Effortlessly</p>
               <button className="cta-button">Learn More</button>
             </div>
           </div>
@@ -138,15 +170,19 @@ export const Home = () => {
 
      
       <section id="about" className="about-section">
-        <div className="about-content">
+        <div ref={aboutRef} className={`about-content ${aboutVisible ? "visible" : ""}`}>
           <h2>About Us</h2>
-          <p>Welcome to Mediaking, a dynamic digital solutions company dedicated to empowering businesses with cutting-edge technology and innovative strategies. We specialize in website development, app development, digital marketing, social media management, and web hosting, offering end-to-end solutions that help brands grow and thrive in the digital world.</p>
+          <p>At Mediaking, we are passionate about transforming ideas into powerful digital solutions. We specialize in website development, mobile app development, digital marketing, social media management, and web hosting services. Our team is dedicated to delivering high-quality, user-friendly, and scalable solutions that help businesses establish a strong online presence.
+
+With a focus on innovation, creativity, and performance, we ensure that our clients stay ahead in the digital landscape. Whether you're a startup or an established business, Mediaking is here to provide tailored solutions to help you grow and succeed.
+
+🚀 Empowering businesses with technology—one solution at a time.</p>
           <div className="about-details">
             <div className="about-text">
               <h3>Our Mission</h3>
-              <p>At Mediaking, we are passionate about helping brands establish a strong online presence and achieve their digital marketing goals. In today's fast-paced digital world, having a well-structured and data-driven marketing strategy is essential for success. That’s where we come in.
+              <p>At Mediaking, our mission is to empower businesses and individuals with cutting-edge digital solutions that drive success. We strive to deliver high-quality, scalable, and innovative web and mobile applications, digital marketing strategies, and hosting services tailored to our clients' needs.
 
-With a team of experienced digital marketing strategists, SEO experts, content creators, and social media managers, we specialize in crafting customized solutions that drive growth, increase brand visibility, and maximize ROI. From search engine optimization (SEO) and pay-per-click (PPC) advertising to social media marketing, content creation, and website development, we provide a full suite of digital marketing services tailored to meet your unique business needs.</p>
+Our goal is to bridge the gap between technology and business growth, ensuring seamless digital experiences through modern development practices, user-friendly designs, and result-oriented strategies.</p>
             </div>
             <div className="about-image">
               <img src={aboutImg} alt="about-img"/>
@@ -157,6 +193,7 @@ With a team of experienced digital marketing strategists, SEO experts, content c
 
       {/* Services Section */}
       <section id="service" className="service-section">
+      <div ref={servicesRef} className={`service-content ${servicesVisible ? "visible" : ""}`}>
         <h2>Our Services</h2>
         <div className="service-grid">
           <div className="service-card">
@@ -198,11 +235,12 @@ With a team of experienced digital marketing strategists, SEO experts, content c
           </div>
           
         </div>
+        </div>
       </section>
       {/* clients */}
       {/* Clients Section */}
 <section className="clients-section">
-  <div className="clients-container">
+<div ref={clientsRef} className={`clients-container ${clientsVisible ? "visible" : ""}`}>
     <h2>Our Valued Clients</h2>
     
     <div className="clients-flex">
@@ -229,7 +267,8 @@ With a team of experienced digital marketing strategists, SEO experts, content c
 </section>
       {/* choose us */}
       <section className="why-choose-section">
-  <div className="choose-container">
+      <div ref={whyChooseRef} className={`choose-container ${whyChooseVisible ? "visible" : ""}`}>
+
     <h2>Why Choose Us?</h2>
     
     <div className="reasons-flex">
@@ -262,7 +301,7 @@ With a team of experienced digital marketing strategists, SEO experts, content c
 
       {/* Contact Section */}
       <section className="main-contact">
-        <div className="contact-container">
+         <div className="contact-container">
           {/* Contact Form */}
           <div className="contact-form">
             <h2>Send a Message</h2>
@@ -299,9 +338,12 @@ With a team of experienced digital marketing strategists, SEO experts, content c
                 ></textarea>
               </div>
               <button type="submit" className="submit-btn">
-                Send Message
+                {sending ? "Sending...":"send Message"}
               </button>
+              <p className='submitMsg'>{submitMsg}</p>
             </form>
+            
+
           </div>
               <div className="contact-info">
             <h2>Get in Touch</h2>
@@ -310,22 +352,21 @@ With a team of experienced digital marketing strategists, SEO experts, content c
                 <div className="info-icon">📍</div>
                 <div>
                   <h3>Our Office</h3>
-                  <p>123 Anywhere St, Any City, ST 12345</p>
+                  <p> Patna , Bihar</p>
                 </div>
               </div>
               <div className="info-item">
                 <div className="info-icon">📞</div>
                 <div>
                   <h3>Phone Numbers</h3>
-                  <p>+123-456-7890</p>
-                  <p>123-456-7890</p>
+                  <p>+91 7370895978</p>
                 </div>
               </div>
               <div className="info-item">
                 <div className="info-icon">✉️</div>
                 <div>
                   <h3>Email</h3>
-                  <p>contact@mediaking.com</p>
+                  <p>mediaking773@gmail.com</p>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/home.css";
 import { useLocation } from "react-router-dom";
+import logo from '../assets/logo.png';
 
 export const Navigation=()=>{
     const navigate=useNavigate();
@@ -52,7 +53,9 @@ useEffect(() => {
 
     return(
         <nav className="navbar">
-        <div className="logo" onClick={() => {handleMenuClick("home");navigate('/');}}>Mediaking</div>
+        <div className="logo" onClick={() => {handleMenuClick("home");navigate('/');}}>
+          <img src={logo}/>
+        </div>
         
         {/* Hamburger Menu Icon */}
         <div 

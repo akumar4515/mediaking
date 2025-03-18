@@ -152,22 +152,21 @@ export const ServiceForm = () => {
                 <div className="info-icon">📍</div>
                 <div>
                   <h3>Our Office</h3>
-                  <p>123 Anywhere St, Any City, ST 12345</p>
+                  <p>Patna ,Bihar</p>
                 </div>
               </div>
               <div className="info-item">
                 <div className="info-icon">📞</div>
                 <div>
                   <h3>Phone Numbers</h3>
-                  <p>+123-456-7890</p>
-                  <p>123-456-7890</p>
+                  <p>+91 7370895978</p>
                 </div>
               </div>
               <div className="info-item">
                 <div className="info-icon">✉️</div>
                 <div>
                   <h3>Email</h3>
-                  <p>contact@mediaking.com</p>
+                  <p>mediaking773@gmail.com</p>
                 </div>
               </div>
             </div>
