@@ -25,6 +25,9 @@ export const Services = () => {
     "Branding & Reputation Management": "Branding & Reputation Management involves developing a strong brand identity and managing your brand's online reputation.",
     "PPC Advertising": "PPC (Pay-Per-Click) advertising involves paid advertisements that drive traffic to your website through paid search engine ads.",
     "E-Commerce & Marketplace Marketing": "E-Commerce & Marketplace Marketing involves advertising and optimizing your presence on e-commerce platforms like Amazon, eBay, and Shopify.",
+    "Software Development": "Custom software development tailored to your business needs, including desktop and enterprise solutions.",
+    "UI/UX Design": "User-centered interface design to enhance user experience and engagement.",
+    "Data Analytics": "Business intelligence insights through data analysis and visualization.",
   };
 
   // Handle feature click to toggle description
@@ -55,139 +58,120 @@ export const Services = () => {
       <section className="main-services" ref={servicesRef}>
         <div className={`services-container ${servicesVisible ? "visible" : ""}`}>
           {/* Website Development */}
-          <div className="service-card">
-            <div className="service-icon">🖥️</div>
-            <h2>Website Development</h2>
-            <ul className="service-features">
-              {["Website Development", "E-Commerce Solutions", "App Development"].map((feature) => (
-                <li
-                  key={feature}
-                  onClick={() => handleFeatureClick(feature)}
-                  className={activeFeature === feature ? 'active-feature' : ''}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {feature}
-                  {activeFeature === feature && (
-                    <p className={activeFeature === feature ? 'active-description' : ''}>
-                      {serviceDetails[feature]}
-                    </p>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <button
-              className="service-cta"
-              onClick={() => handleGetStartedClick(1)} // Navigate to service ID 1
-            >
-              Get Started
-            </button>
-          </div>
+          {/* Website Development */}
+<div className="service-card">
+  <div className="service-icon">🖥️</div>
+  <h2>Website Development</h2>
+  <ul className="service-features">
+    {["Website Development", "E-Commerce Solutions", "App Development", "Software Development"].map((feature) => (
+      <li
+        key={feature}
+        onClick={() => handleFeatureClick(feature)}
+        className={activeFeature === feature ? 'active-feature' : ''}
+        style={{ cursor: 'pointer' }}
+      >
+        {feature}
+        {activeFeature === feature && (
+          <p className={activeFeature === feature ? 'active-description' : ''}>
+            {serviceDetails[feature]}
+          </p>
+        )}
+      </li>
+    ))}
+  </ul>
+  <button
+    className="service-cta"
+    onClick={() => handleGetStartedClick(1)} // Navigate to service ID 1
+  >
+    Get Started
+  </button>
+</div>
 
-          {/* Graphic Design */}
-          <div className="service-card">
-            <div className="service-icon">📱</div>
-            <h2>Graphic Designing</h2>
-            <ul className="service-features">
-              {["Graphic Design", "Branding & Reputation Management"].map((feature) => (
-                <li
-                  key={feature}
-                  onClick={() => handleFeatureClick(feature)}
-                  className={activeFeature === feature ? 'active-feature' : ''}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {feature}
-                  {activeFeature === feature && (
-                    <p className={activeFeature === feature ? 'active-description' : ''}>
-                      {serviceDetails[feature]}
-                    </p>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <button
-              className="service-cta"
-              onClick={() => handleGetStartedClick(3)} // Navigate to service ID 3
-            >
-              Get Started
-            </button>
-          </div>
+{/* Digital Marketing */}
+<div className="service-card">
+  <div className="service-icon">📈</div>
+  <h2>Digital Marketing</h2>
+  <ul className="service-features">
+    {["Digital Marketing", "SEO Optimization", "Social Media Marketing", "PPC Advertising", "E-Commerce & Marketplace Marketing"].map((feature) => (
+      <li
+        key={feature}
+        onClick={() => handleFeatureClick(feature)}
+        className={activeFeature === feature ? 'active-feature' : ''}
+        style={{ cursor: 'pointer' }}
+      >
+        {feature}
+        {activeFeature === feature && (
+          <p className={activeFeature === feature ? 'active-description' : ''}>
+            {serviceDetails[feature]}
+          </p>
+        )}
+      </li>
+    ))}
+  </ul>
+  <button
+    className="service-cta"
+    onClick={() => handleGetStartedClick(3)} // Navigate to service ID 3
+  >
+    Get Started
+  </button>
+</div>
 
-          {/* Digital Marketing */}
-          <div className="service-card">
-            <div className="service-icon">📈</div>
-            <h2>Digital Marketing</h2>
-            <ul className="service-features">
-              {["Digital Marketing", "SEO Optimization", "Social Media Marketing", "PPC Advertising"].map((feature) => (
-                <li
-                  key={feature}
-                  onClick={() => handleFeatureClick(feature)}
-                  className={activeFeature === feature ? 'active-feature' : ''}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {feature}
-                  {activeFeature === feature && (
-                    <p className={activeFeature === feature ? 'active-description' : ''}>
-                      {serviceDetails[feature]}
-                    </p>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <button
-              className="service-cta"
-              onClick={() => handleGetStartedClick(3)} // Navigate to service ID 3
-            >
-              Get Started
-            </button>
-          </div>
-
-          {/* Content Creation */}
-          <div className="service-card">
-            <div className="service-icon">☁️</div>
-            <h2>Content Creation</h2>
-            <ul className="service-features">
-              {["Content Creation", "E-Commerce & Marketplace Marketing"].map((feature) => (
-                <li
-                  key={feature}
-                  onClick={() => handleFeatureClick(feature)}
-                  className={activeFeature === feature ? 'active-feature' : ''}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {feature}
-                  {activeFeature === feature && (
-                    <p className={activeFeature === feature ? 'active-description' : ''}>
-                      {serviceDetails[feature]}
-                    </p>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <button
-              className="service-cta"
-              onClick={() => handleGetStartedClick(3)} // Navigate to service ID 3
-            >
-              Get Started
-            </button>
-          </div>
+{/* Content Creation */}
+<div className="service-card">
+  <div className="service-icon">☁️</div>
+  <h2>Content Creation</h2>
+  <ul className="service-features">
+    {["Content Creation", "Branding & Reputation Management"].map((feature) => (
+      <li
+        key={feature}
+        onClick={() => handleFeatureClick(feature)}
+        className={activeFeature === feature ? 'active-feature' : ''}
+        style={{ cursor: 'pointer' }}
+      >
+        {feature}
+        {activeFeature === feature && (
+          <p className={activeFeature === feature ? 'active-description' : ''}>
+            {serviceDetails[feature]}
+          </p>
+        )}
+      </li>
+    ))}
+  </ul>
+  <button
+    className="service-cta"
+    onClick={() => handleGetStartedClick(4)} // Navigate to service ID 4
+  >
+    Get Started
+  </button>
+</div>
         </div>
       </section>
 
       {/* Additional Services Section */}
-      <section className="additional-services" ref={additionalServicesRef}>
-        <div className={`specialized-container ${additionalServicesVisible ? "visible" : ""}`}>
-          <h2>Specialized Solutions</h2>
-          <div className="specialized-grid">
-            <div className="special-card">
-              <h3>UI/UX Design</h3>
-              <p>User-centered interface design</p>
-            </div>
-            <div className="special-card">
-              <h3>Data Analytics</h3>
-              <p>Business intelligence insights</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Additional Services Section */}
+<section className="additional-services" ref={additionalServicesRef}>
+  <div className={`specialized-container ${additionalServicesVisible ? "visible" : ""}`}>
+    <h2>Specialized Solutions</h2>
+    <div className="specialized-grid">
+      <div className="special-card">
+        <h3>UI/UX Design</h3>
+        <p>User-centered interface design</p>
+      </div>
+      <div className="special-card">
+        <h3>Data Analytics</h3>
+        <p>Business intelligence insights</p>
+      </div>
+      <div className="special-card">
+        <h3>Software Development</h3>
+        <p>Custom software solutions</p>
+      </div>
+      <div className="special-card">
+        <h3>Branding & Reputation Management</h3>
+        <p>Build and manage your brand identity</p>
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   );
 };
