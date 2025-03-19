@@ -2,12 +2,12 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import fb from '../assets/facebook.png';
-import insta from '../assets/instagram.png';
-import lnkdn from '../assets/linkedin.png';
-import x from '../assets/twitter.png';
-import useScrollAnimation  from './ScrollAnimation'; // Import the hook
-import '../css/contact.css'; // Import the CSS file
+import fb from '../../assets/facebook.png';
+import insta from '../../assets/instagram.png';
+import lnkdn from '../../assets/linkedin.png';
+import x from '../../assets/twitter.png';
+import useScrollAnimation  from '../ScrollAnimation'; // Import the hook
+import './contact.css'; // Import the CSS file
 import { useState } from 'react';
 
 export const Contact = () => {
@@ -55,8 +55,12 @@ export const Contact = () => {
         publicKey
       );
       setSending(false);
-      console.log("email Sent")
-      setSubmitMsg("Thanks For Contacting Us")
+      navigate('/thankyou')
+      // setSubmitMsg("Thanks For Contacting Us")
+      e.target.user_name.value="";
+      e.target.user_email.value="";
+      e.target.user_tel.value="";
+      e.target.user_message.value="";
     } catch (error) {
       console.error('Error:', error);
       alert('Failed to send message');

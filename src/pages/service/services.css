@@ -6,7 +6,7 @@
   .services-hero {
     width:100vw;
     background: linear-gradient(rgba(159, 176, 187, 0.3), rgba(75, 114, 140, 0.8)),
-      url('../assets/services.jpg');
+      url('../../assets/services.jpg');
     background-size: cover;
     height: 50vh;
     display: flex;
@@ -33,6 +33,7 @@
   .services-hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color:#08381c;
   }
   
   /* Main Services Section */

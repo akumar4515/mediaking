@@ -1,7 +1,6 @@
 import React from 'react';
-import '../css/about.css';
-import aboutBg from '../assets/about.png';
-import  useScrollAnimation  from "./ScrollAnimation";
+import './about.css';
+import  useScrollAnimation  from "../ScrollAnimation";
 
 
 export const About = () => {

@@ -5,30 +5,30 @@ import emailjs from '@emailjs/browser';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../css/home.css";
-import webImg from '../assets/web.png';
-import seoImg from '../assets/seo.webp';
-import aboutImg from '../assets/about.png';
-import ecm from '../assets/ecm.jpg';
-import ppc from '../assets/ppc.webp';
-import ssm from '../assets/cm.png';
-import brand from '../assets/brand.jpg';
-import web from '../assets/web.mp4'; // Add more videos for the slider
-import app from '../assets/app.mp4';
-import software from '../assets/software.mp4';
-import graphic from '../assets/graphic.mp4';
-import digital from '../assets/digital.mp4';
-import amzn from '../assets/amzn.jpg';
-import ggl from '../assets/google.jpg';
-import acntr from '../assets/acntr.jpg';
-import deloit from '../assets/dloit.jpg';
-import kpmg from '../assets/kpmg.png';
-import apnaClg from '../assets/apna-clg.png';
-import fb from '../assets/facebook.png';
-import insta from '../assets/instagram.png';
-import lnkdn from '../assets/linkedin.png';
-import x from '../assets/twitter.png';
-import useScrollAnimation from "./ScrollAnimation";
+import "./home.css";
+import webImg from '../../assets/web.png';
+import seoImg from '../../assets/seo.webp';
+import aboutImg from '../../assets/about.png';
+import ecm from '../../assets/ecm.jpg'
+import ppc from '../../assets/ppc.webp';
+import ssm from '../../assets/cm.png';
+import brand from '../../assets/brand.jpg';
+import web from '../../assets/web.mp4'; // Add more videos for the slider
+import app from '../../assets/app.mp4';
+import software from '../../assets/software.mp4';
+import graphic from '../../assets/graphic.mp4';
+import digital from '../../assets/digital.mp4';
+import amzn from '../../assets/amzn.jpg';
+import ggl from '../../assets/google.jpg';
+import acntr from '../../assets/acntr.jpg';
+import deloit from '../../assets/dloit.jpg';
+import kpmg from '../../assets/kpmg.png';
+import apnaClg from '../../assets/apna-clg.png';
+import fb from '../../assets/facebook.png';
+import insta from '../../assets/instagram.png';
+import lnkdn from '../../assets/linkedin.png';
+import x from '../../assets/twitter.png';
+import useScrollAnimation from "../ScrollAnimation";
 
 
 export const Home = () => {
@@ -77,13 +77,23 @@ export const Home = () => {
         publicKey
       );
       setSending(false);
-      console.log("email Sent")
-      setSubmitMsg("Thanks For Contacting Us")
+      navigate('/thankyou')
+      // setSubmitMsg("Thanks For Contacting Us")
+      e.target.user_name.value="";
+      e.target.user_email.value="";
+      e.target.user_tel.value="";
+      e.target.user_message.value="";
     } catch (error) {
       console.error('Error:', error);
       alert('Failed to send message');
     }
   };
+
+  const handleNewForm=(e)=>{
+    e.preventDefault();
+    setSubmitMsg("")
+    
+  }
 
   const CustomArrow = ({ onClick, direction }) => (
     <button 
@@ -102,6 +112,11 @@ export const Home = () => {
     nextArrow: <CustomArrow direction="next" />,
     // ... rest of settings
   };
+
+  const handleGetStartedClick = (serviceId) => {
+    navigate(`/service-detail/${serviceId}`); // Navigate to service detail page with ID
+  };
+
   
   
 
@@ -118,7 +133,7 @@ export const Home = () => {
             <div className="hero-contents">
               <h1>Mediaking Is Best In Digital Marketing</h1>
               <p>We help your business to grow faster</p>
-              <button className="cta-button">Learn More</button>
+              <button className="cta-button"  onClick={() => handleGetStartedClick(3)}>Learn More</button>
             </div>
           </div>
           <div className="hero-slide">
@@ -129,7 +144,7 @@ export const Home = () => {
             <div className="hero-contents">
               <h1>Mediaking Is Best In App Development Service</h1>
               <p>We create mobile app which is very easy to use by everyone</p>
-              <button className="cta-button">Learn More</button>
+              <button className="cta-button"  onClick={() => handleGetStartedClick(3)}>Learn More</button>
             </div>
           </div>
           <div className="hero-slide">
@@ -140,7 +155,7 @@ export const Home = () => {
             <div className="hero-contents">
               <h1>Mediaking Is Best In Graphic Design Service</h1>
               <p>We Deliver You Creative & Catchy Post For Your Business</p>
-              <button className="cta-button">Learn More</button>
+              <button className="cta-button"  onClick={() => handleGetStartedClick(3)}>Learn More</button>
             </div>
           </div>
           <div className="hero-slide">
@@ -151,7 +166,7 @@ export const Home = () => {
             <div className="hero-contents">
               <h1>Beautiful ,Innovative & Effective Website</h1>
               <p>We Promote Your All Goods Online & Generate Leads From Website</p>
-              <button className="cta-button">Learn More</button>
+              <button className="cta-button"  onClick={() => handleGetStartedClick(3)}>Learn More</button>
             </div>
           </div>
           <div className="hero-slide">
@@ -162,7 +177,7 @@ export const Home = () => {
             <div className="hero-contents">
               <h1>Mediaking Is Best In Software Development Service</h1>
               <p>We Craft Software To Simplify Your Workflow Effortlessly</p>
-              <button className="cta-button">Learn More</button>
+              <button className="cta-button"  onClick={() => handleGetStartedClick(3)}>Learn More</button>
             </div>
           </div>
         </Slider>
@@ -200,38 +215,38 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
             <img src={webImg} alt="Web Development" className="service-img" />
             <h3>Web Development</h3>
             <p>Custom website solutions wordpress and coding</p>
-            <button className="know-more-button"  onClick={()=>navigate('/services')}>Know More</button>
+            <button className="know-more-button"   onClick={() => handleGetStartedClick(3)}>Know More</button>
           </div>
           <div className="service-card">
             <img src={seoImg} alt="Mobile Apps" className="service-img" />
             <h3>Search Engine Optimization (SEO) </h3>
             <p>SEO Optimization - To Rank Up businesses</p>
-            <button className="know-more-button"   onClick={()=>navigate('/services')}>Know More</button>
+            <button className="know-more-button"    onClick={() => handleGetStartedClick(3)}>Know More</button>
           </div>
           <div className="service-card">
             <img src={ssm} alt="Cloud Solutions" className="service-img" />
             <h3>Social Media Marketing (SMM)</h3>
             <p>Scalable cloud infrastructure...</p>
-            <button className="know-more-button"  onClick={()=>navigate('/services')}>Know More</button>
+            <button className="know-more-button"   onClick={() => handleGetStartedClick(3)}>Know More</button>
           </div>
           <div className="service-card">
             <img src={ppc} alt="Cloud Solutions" className="service-img" />
             <h3>Pay-Per-Click (PPC) Advertising </h3>
             <p>Scalable cloud infrastructure...</p>
-            <button className="know-more-button"   onClick={()=>navigate('/services')}>Know More</button>
+            <button className="know-more-button"    onClick={() => handleGetStartedClick(3)}>Know More</button>
           </div>
          
           <div className="service-card">
             <img src={ecm} alt="Cloud Solutions" className="service-img" />
             <h3> E-commerce & Marketplace Marketing</h3>
             <p>Scalable cloud infrastructure...</p>
-            <button className="know-more-button"   onClick={()=>navigate('/services')}>Know More</button>
+            <button className="know-more-button"    onClick={() => handleGetStartedClick(3)}>Know More</button>
           </div>
           <div className="service-card">
             <img src={brand} alt="Cloud Solutions" className="service-img" />
             <h3>Branding & Reputation Management</h3>
             <p>Scalable cloud infrastructure...</p>
-            <button className="know-more-button"  onClick={()=>navigate('/services')}>Know More</button>
+            <button className="know-more-button"   onClick={() => handleGetStartedClick(3)}>Know More</button>
           </div>
           
         </div>
@@ -312,6 +327,7 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
                   name="user_name"
                   placeholder="Your Name" 
                   required 
+                  onClick={handleNewForm}
                 />
               </div>
               <div className="form-group">
@@ -320,6 +336,7 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
                   name="user_email"
                   placeholder="Your Email" 
                   required 
+                  onClick={handleNewForm}
                 />
               </div>
               <div className="form-group">
@@ -327,6 +344,7 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
                   type="tel" 
                   name="user_tel"
                   placeholder="Phone Number" 
+                  onClick={handleNewForm}
                 />
               </div>
               <div className="form-group">
@@ -335,6 +353,7 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
                   name="user_message"
                   rows="5" 
                   required 
+                  onClick={handleNewForm}
                 ></textarea>
               </div>
               <button type="submit" className="submit-btn">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import  useScrollAnimation  from './ScrollAnimation'; // Import the hook
-import "../css/services.css";
+import useScrollAnimation from '../ScrollAnimation'; // Import the hook
+import "./services.css";
 
 export const Services = () => {
   const navigate = useNavigate();
@@ -27,12 +27,18 @@ export const Services = () => {
     "E-Commerce & Marketplace Marketing": "E-Commerce & Marketplace Marketing involves advertising and optimizing your presence on e-commerce platforms like Amazon, eBay, and Shopify.",
   };
 
+  // Handle feature click to toggle description
   const handleFeatureClick = (feature) => {
     if (activeFeature === feature) {
       setActiveFeature(null); // Toggle off if the same feature is clicked again
     } else {
       setActiveFeature(feature); // Show details for clicked feature
     }
+  };
+
+  // Handle "Get Started" button click
+  const handleGetStartedClick = (serviceId) => {
+    navigate(`/service-detail/${serviceId}`); // Navigate to service detail page with ID
   };
 
   return (
@@ -69,9 +75,9 @@ export const Services = () => {
                 </li>
               ))}
             </ul>
-            <button 
+            <button
               className="service-cta"
-              onClick={() => navigate('/service-form')}
+              onClick={() => handleGetStartedClick(1)} // Navigate to service ID 1
             >
               Get Started
             </button>
@@ -98,9 +104,9 @@ export const Services = () => {
                 </li>
               ))}
             </ul>
-            <button 
+            <button
               className="service-cta"
-              onClick={() => navigate('/service-form')}
+              onClick={() => handleGetStartedClick(3)} // Navigate to service ID 3
             >
               Get Started
             </button>
@@ -127,9 +133,9 @@ export const Services = () => {
                 </li>
               ))}
             </ul>
-            <button 
+            <button
               className="service-cta"
-              onClick={() => navigate('/service-form')}
+              onClick={() => handleGetStartedClick(3)} // Navigate to service ID 3
             >
               Get Started
             </button>
@@ -156,9 +162,9 @@ export const Services = () => {
                 </li>
               ))}
             </ul>
-            <button 
+            <button
               className="service-cta"
-              onClick={() => navigate('/service-form')}
+              onClick={() => handleGetStartedClick(3)} // Navigate to service ID 3
             >
               Get Started
             </button>

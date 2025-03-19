@@ -1,31 +1,26 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../css/ServiceForm.css';
-import fb from '../assets/facebook.png';
-import insta from '../assets/instagram.png';
-import lnkdn from '../assets/linkedin.png';
-import x from '../assets/twitter.png';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import './ServiceForm.css';
+import fb from '../../assets/facebook.png';
+import insta from '../../assets/instagram.png';
+import lnkdn from '../../assets/linkedin.png';
+import x from '../../assets/twitter.png';
 import emailjs from '@emailjs/browser';
 
 export const ServiceForm = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: '',
-    message: ''
+    service: location.state?.service || '', // Pre-fill service if available
+    package: location.state?.package || '', // Pre-fill package if available
+    price: location.state?.price || '',     // Pre-fill price if available
+    message: '',
   });
   const [errors, setErrors] = useState({});
 
-  const services = [
-    'Website Development',
-    'Digital Marketing',
-    'Graphic Designing',
-    'Content Creation',
-    'UI/UX Design',
-    'Data Analytics'
-  ];
 
   const validateForm = () => {
     const newErrors = {};
@@ -53,13 +48,13 @@ export const ServiceForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
+      setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
 
@@ -67,7 +62,7 @@ export const ServiceForm = () => {
     <div className="service-form-page">
       <section className="form-hero">
         <div className="hero-contentt">
-          <h1>Service Inquiry</h1>
+          <h1>Service Request</h1>
           <p>Let us know how we can assist you</p>
         </div>
       </section>
@@ -111,22 +106,41 @@ export const ServiceForm = () => {
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="service">Select Service</label>
-            <select
-              id="service"
-              name="service"
-              value={formData.service}
-              onChange={handleChange}
-              className={errors.service ? 'error' : ''}
-            >
-              <option value="">Choose a service</option>
-              {services.map((service, index) => (
-                <option key={index} value={service}>{service}</option>
-              ))}
-            </select>
-            {errors.service && <span className="error-message">{errors.service}</span>}
-          </div>
+          {/* Display Service if pre-filled */}
+          {location.state?.service && (
+            <div className="form-group">
+              <label>Selected Service</label>
+              <input
+                type="text"
+                value={formData.service}
+                readOnly
+              />
+            </div>
+          )}
+
+          {/* Display Package if pre-filled */}
+          {location.state?.package && (
+            <div className="form-group">
+              <label>Selected Package</label>
+              <input
+                type="text"
+                value={formData.package}
+                readOnly
+              />
+            </div>
+          )}
+
+          {/* Display Price if pre-filled */}
+          {location.state.price && (
+            <div className="form-group">
+              <label>Price</label>
+              <input
+                type="text"
+                value={`$${formData.price}`}  // Add $ symbol for clarity
+                readOnly
+              />
+            </div>
+          )}
 
           <div className="form-group">
             <label htmlFor="message">Additional Details</label>
@@ -144,43 +158,60 @@ export const ServiceForm = () => {
             Submit Inquiry
           </button>
         </form>
-         {/* Contact Info */}
-         <div className="contact-info">
-            <h2>Get in Touch</h2>
-            <div className="info-card">
-              <div className="info-item">
-                <div className="info-icon">📍</div>
-                <div>
-                  <h3>Our Office</h3>
-                  <p>Patna ,Bihar</p>
-                </div>
-              </div>
-              <div className="info-item">
-                <div className="info-icon">📞</div>
-                <div>
-                  <h3>Phone Numbers</h3>
-                  <p>+91 7370895978</p>
-                </div>
-              </div>
-              <div className="info-item">
-                <div className="info-icon">✉️</div>
-                <div>
-                  <h3>Email</h3>
-                  <p>mediaking773@gmail.com</p>
-                </div>
+
+        {/* Contact Info */}
+        <div className="contact-info">
+          <h2>Get in Touch</h2>
+          <div className="info-card">
+            <div className="info-item">
+              <div className="info-icon">📍</div>
+              <div>
+                <h3>Our Office</h3>
+                <p>Patna, Bihar</p>
               </div>
             </div>
-            
-            <div className="social-links">
-              <h3>Follow Us</h3>
-              <div className="social-icons">
-                <a href="#facebook"><div className='icon'><img src={fb}alt="facebook" /></div></a>
-                <a href="#twitter"><div className='icon'><img src={insta}alt="insta" /></div></a>
-                <a href="#linkedin"><div className='icon'><img src={x}alt="twitter" /></div></a>
-                <a href="#instagram"><div className='icon'><img src={lnkdn}alt="linkdin" /></div></a>
+            <div className="info-item">
+              <div className="info-icon">📞</div>
+              <div>
+                <h3>Phone Numbers</h3>
+                <p>+91 7370895978</p>
+              </div>
+            </div>
+            <div className="info-item">
+              <div className="info-icon">✉️</div>
+              <div>
+                <h3>Email</h3>
+                <p>mediaking773@gmail.com</p>
               </div>
             </div>
           </div>
+
+          <div className="social-links">
+            <h3>Follow Us</h3>
+            <div className="social-icons">
+              <a href="#facebook">
+                <div className="icon">
+                  <img src={fb} alt="facebook" />
+                </div>
+              </a>
+              <a href="#twitter">
+                <div className="icon">
+                  <img src={insta} alt="insta" />
+                </div>
+              </a>
+              <a href="#linkedin">
+                <div className="icon">
+                  <img src={x} alt="twitter" />
+                </div>
+              </a>
+              <a href="#instagram">
+                <div className="icon">
+                  <img src={lnkdn} alt="linkdin" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
