@@ -9,7 +9,7 @@ const useScrollAnimation = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 } // 50% viewport visibility
+      { threshold: 0.01 } // 50% viewport visibility
     );
 
     if (ref.current) observer.observe(ref.current);

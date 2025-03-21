@@ -13,7 +13,9 @@ import ecm from '../../assets/ecm.jpg'
 import ppc from '../../assets/ppc.webp';
 import smm from '../../assets/cm.png';
 import brand from '../../assets/brand.jpg';
-import web from '../../assets/web.mp4'; // Add more videos for the slider
+import web from '../../assets/web.mp4'; 
+import appImg from '../../assets/app.jpg'
+// Add more videos for the slider
 import app from '../../assets/app.mp4';
 import software from '../../assets/software.mp4';
 import graphic from '../../assets/graphic.mp4';
@@ -23,6 +25,8 @@ import ggl from '../../assets/google.jpg';
 import acntr from '../../assets/acntr.jpg';
 import deloit from '../../assets/dloit.jpg';
 import kpmg from '../../assets/kpmg.png';
+import softImg from '../../assets/soft.webp';
+import contImg from '../../assets/contImg.jpg'
 import apnaClg from '../../assets/apna-clg.png';
 import fb from '../../assets/facebook.png';
 import insta from '../../assets/instagram.png';
@@ -204,6 +208,7 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
             </div>
           </div>
         </div>
+        
       </section>
 
       {/* Services Section */}
@@ -215,55 +220,55 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
     <img src={webImg} alt="Web Development" className="service-img" />
     <h3>Web Development</h3>
     <p>Custom website solutions using WordPress and custom coding.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(1)}>Know More</button>
+    <button className="know-more-button" onClick={() => handleGetStartedClick(1)}>Start Now</button>
   </div>
   <div className="service-card">
-    <img src={app} alt="App Development" className="service-img" />
+    <img src={appImg} alt="App Development" className="service-img" />
     <h3>App Development</h3>
     <p>Mobile & web applications with modern UI/UX.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(2)}>Know More</button>
+    <button className="know-more-button" onClick={() => handleGetStartedClick(2)}>Start Now</button>
   </div>
   <div className="service-card">
     <img src={seoImg} alt="SEO" className="service-img" />
     <h3>Search Engine Optimization (SEO)</h3>
     <p>Boost website rankings and organic traffic.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(4)}>Know More</button>
+    <button className="know-more-button" onClick={() => handleGetStartedClick(4)}>Start Now</button>
   </div>
   <div className="service-card">
     <img src={smm} alt="Social Media Marketing" className="service-img" />
     <h3>Social Media Marketing (SMM)</h3>
     <p>Strategic marketing for social media growth.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(5)}>Know More</button>
+    <button className="know-more-button" onClick={() => handleGetStartedClick(5)}>Start Now</button>
   </div>
   <div className="service-card">
     <img src={ppc} alt="PPC Advertising" className="service-img" />
     <h3>Pay-Per-Click (PPC) Advertising</h3>
     <p>High-converting ad campaigns for businesses.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(6)}>Know More</button>
+    <button className="know-more-button" onClick={() => handleGetStartedClick(6)}>Start Now</button>
   </div>
   <div className="service-card">
     <img src={ecm} alt="E-commerce Marketing" className="service-img" />
     <h3>E-commerce & Marketplace Marketing</h3>
     <p>Optimized strategies to grow online stores.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(7)}>Know More</button>
+    <button className="know-more-button" onClick={() => handleGetStartedClick(7)}>Start Now</button>
   </div>
   <div className="service-card">
     <img src={brand} alt="Branding & Reputation Management" className="service-img" />
     <h3>Branding & Reputation Management</h3>
     <p>Build and maintain a strong brand image.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(8)}>Know More</button>
+    <button className="know-more-button" onClick={() => handleGetStartedClick(8)}>Start Now</button>
   </div>
   <div className="service-card">
-    <img src={software} alt="Content Creation" className="service-img" />
+    <img src={contImg} alt="Content Creation" className="service-img" />
     <h3>Content Creation</h3>
     <p>Engaging content for blogs, videos, and social media.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(9)}>Know More</button>
+    <button className="know-more-button" onClick={() => handleGetStartedClick(9)}>Start Now</button>
   </div>
   <div className="service-card">
-    <img src={software} alt="Software Development" className="service-img" />
+    <img src={softImg} alt="Software Development" className="service-img" />
     <h3>Software Development</h3>
     <p>Custom software solutions for businesses.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(3)}>Know More</button>
+    <button className="know-more-button" onClick={() => handleGetStartedClick(3)}>Start Now</button>
   </div>
 </div>
 

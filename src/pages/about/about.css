@@ -6,7 +6,7 @@
   
   /* Hero Section */
   .about-hero {
-    background: linear-gradient(rgba(150, 191, 218, 0.7), rgba(78, 73, 114, 0.4)),
+    background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)),
       url('../../assets/aboutus.jpeg');
     background-size: cover;
     height: 60vh;
@@ -23,7 +23,7 @@
   .about-hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color:#08381c;
+    /* color:#08381c; */
   }
   
   /* Our Story Section */

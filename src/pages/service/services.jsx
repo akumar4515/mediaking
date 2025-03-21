@@ -1,47 +1,139 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import useScrollAnimation from '../ScrollAnimation'; // Import the hook
+import useScrollAnimation from '../ScrollAnimation';
 import "./services.css";
 
 export const Services = () => {
   const navigate = useNavigate();
-  const [activeFeature, setActiveFeature] = useState(null);
-
-  // Scroll animation hooks for each section
+  
+  // Scroll animation hooks
   const [heroRef, heroVisible] = useScrollAnimation();
+  const [marketingRef, marketingVisible] = useScrollAnimation();
   const [servicesRef, servicesVisible] = useScrollAnimation();
   const [additionalServicesRef, additionalServicesVisible] = useScrollAnimation();
 
-  // Service details (same as before)
-  const serviceDetails = {
-    "Website Development": "Website development involves creating websites from scratch, ensuring they are functional, user-friendly, and responsive.",
-    "SEO Optimization": "SEO Optimization improves your website's visibility on search engines, driving more organic traffic to your site.",
-    "Digital Marketing": "Digital marketing strategies like SEO, PPC, social media marketing, and content marketing help you reach and engage your audience online.",
-    "Graphic Design": "Graphic design services involve creating visual content such as logos, branding, brochures, and website designs to communicate your brand.",
-    "Content Creation": "Content creation includes writing blog posts, designing infographics, and creating multimedia content that engages your audience.",
-    "Social Media Marketing": "Social media marketing helps you build your brand's presence on platforms like Facebook, Instagram, and LinkedIn, engaging your audience.",
-    "App Development": "App development services for both iOS and Android platforms, providing custom solutions tailored to your business needs.",
-    "E-Commerce Solutions": "E-commerce solutions include building and maintaining online stores, offering product management and secure payment gateways.",
-    "Branding & Reputation Management": "Branding & Reputation Management involves developing a strong brand identity and managing your brand's online reputation.",
-    "PPC Advertising": "PPC (Pay-Per-Click) advertising involves paid advertisements that drive traffic to your website through paid search engine ads.",
-    "E-Commerce & Marketplace Marketing": "E-Commerce & Marketplace Marketing involves advertising and optimizing your presence on e-commerce platforms like Amazon, eBay, and Shopify.",
-    "Software Development": "Custom software development tailored to your business needs, including desktop and enterprise solutions.",
-    "UI/UX Design": "User-centered interface design to enhance user experience and engagement.",
-    "Data Analytics": "Business intelligence insights through data analysis and visualization.",
-  };
-
-  // Handle feature click to toggle description
-  const handleFeatureClick = (feature) => {
-    if (activeFeature === feature) {
-      setActiveFeature(null); // Toggle off if the same feature is clicked again
-    } else {
-      setActiveFeature(feature); // Show details for clicked feature
+  // Main services data
+  const mainServices = [
+    {
+      id: 1,
+      title: "Web Development",
+      icon: "🌐",
+      features: [
+        "Custom website development",
+        "Responsive design",
+        "CMS integration (WordPress, Shopify)",
+        "E-commerce solutions",
+        "Website maintenance"
+      ]
+    },
+    {
+      id: 2,
+      title: "App Development",
+      icon: "📱",
+      features: [
+        "iOS & Android apps",
+        "Cross-platform development",
+        "UI/UX design",
+        "API integration",
+        "App store deployment"
+      ]
+    },
+    {
+      id: 3,
+      title: "SEO Optimization",
+      icon: "🔍",
+      features: [
+        "Keyword research",
+        "On-page SEO",
+        "Technical SEO audits",
+        "Backlink building",
+        "Rank tracking"
+      ]
     }
-  };
+  ];
 
-  // Handle "Get Started" button click
+  // Digital Marketing Services
+  const digitalMarketingServices = [
+    {
+      id: 4,
+      title: "Social Media Marketing (SMM)",
+      icon: "💬",
+      features: [
+        "Content strategy",
+        "Platform management",
+        "Influencer collaborations",
+        "Audience engagement",
+        "Analytics & reporting"
+      ]
+    },
+    {
+      id: 5,
+      title: "PPC Advertising",
+      icon: "📈",
+      features: [
+        "Google Ads management",
+        "Facebook/Instagram ads",
+        "Campaign optimization",
+        "Conversion tracking",
+        "ROI analysis"
+      ]
+    },
+    {
+      id: 6,
+      title: "E-Commerce Marketing",
+      icon: "🛒",
+      features: [
+        "Marketplace optimization",
+        "Product listing ads",
+        "Shopping campaigns",
+        "Review management",
+        "Cart abandonment solutions"
+      ]
+    }
+  ];
+
+  // Content & Branding Services
+  const contentServices = [
+    {
+      id: 7,
+      title: "Content Creation",
+      icon: "✍️",
+      features: [
+        "Blog writing",
+        "Video production",
+        "Infographics",
+        "Email newsletters",
+        "Social media content"
+      ]
+    },
+    {
+      id: 8,
+      title: "Branding & Reputation",
+      icon: "🏅",
+      features: [
+        "Brand strategy",
+        "Logo design",
+        "Style guides",
+        "Online reputation management",
+        "Crisis communication"
+      ]
+    },
+    {
+      id: 9,
+      title: "Software Development",
+      icon: "💻",
+      features: [
+        "Custom software solutions",
+        "SaaS development",
+        "API development",
+        "Cloud integration",
+        "DevOps services"
+      ]
+    }
+  ];
+
   const handleGetStartedClick = (serviceId) => {
-    navigate(`/service-detail/${serviceId}`); // Navigate to service detail page with ID
+    navigate(`/service-detail/${serviceId}`);
   };
 
   return (
@@ -49,129 +141,89 @@ export const Services = () => {
       {/* Hero Section */}
       <section className="services-hero" ref={heroRef}>
         <div className={`hero-content ${heroVisible ? "visible" : ""}`}>
-          <h1>Our Services</h1>
-          <p>Expert Solutions for Digital Success</p>
+          <h1>Digital Transformation Services</h1>
+          <p>End-to-End Solutions for Modern Businesses</p>
         </div>
       </section>
 
-      {/* Main Services Section */}
+      {/* Main Development Services */}
       <section className="main-services" ref={servicesRef}>
         <div className={`services-container ${servicesVisible ? "visible" : ""}`}>
-          {/* Website Development */}
-          {/* Website Development */}
-<div className="service-card">
-  <div className="service-icon">🖥️</div>
-  <h2>Website Development</h2>
-  <ul className="service-features">
-    {["Website Development", "E-Commerce Solutions", "App Development", "Software Development"].map((feature) => (
-      <li
-        key={feature}
-        onClick={() => handleFeatureClick(feature)}
-        className={activeFeature === feature ? 'active-feature' : ''}
-        style={{ cursor: 'pointer' }}
-      >
-        {feature}
-        {activeFeature === feature && (
-          <p className={activeFeature === feature ? 'active-description' : ''}>
-            {serviceDetails[feature]}
-          </p>
-        )}
-      </li>
-    ))}
-  </ul>
-  <button
-    className="service-cta"
-    onClick={() => handleGetStartedClick(1)} // Navigate to service ID 1
-  >
-    Get Started
-  </button>
-</div>
-
-{/* Digital Marketing */}
-<div className="service-card">
-  <div className="service-icon">📈</div>
-  <h2>Digital Marketing</h2>
-  <ul className="service-features">
-    {["Digital Marketing", "SEO Optimization", "Social Media Marketing", "PPC Advertising", "E-Commerce & Marketplace Marketing"].map((feature) => (
-      <li
-        key={feature}
-        onClick={() => handleFeatureClick(feature)}
-        className={activeFeature === feature ? 'active-feature' : ''}
-        style={{ cursor: 'pointer' }}
-      >
-        {feature}
-        {activeFeature === feature && (
-          <p className={activeFeature === feature ? 'active-description' : ''}>
-            {serviceDetails[feature]}
-          </p>
-        )}
-      </li>
-    ))}
-  </ul>
-  <button
-    className="service-cta"
-    onClick={() => handleGetStartedClick(3)} // Navigate to service ID 3
-  >
-    Get Started
-  </button>
-</div>
-
-{/* Content Creation */}
-<div className="service-card">
-  <div className="service-icon">☁️</div>
-  <h2>Content Creation</h2>
-  <ul className="service-features">
-    {["Content Creation", "Branding & Reputation Management"].map((feature) => (
-      <li
-        key={feature}
-        onClick={() => handleFeatureClick(feature)}
-        className={activeFeature === feature ? 'active-feature' : ''}
-        style={{ cursor: 'pointer' }}
-      >
-        {feature}
-        {activeFeature === feature && (
-          <p className={activeFeature === feature ? 'active-description' : ''}>
-            {serviceDetails[feature]}
-          </p>
-        )}
-      </li>
-    ))}
-  </ul>
-  <button
-    className="service-cta"
-    onClick={() => handleGetStartedClick(4)} // Navigate to service ID 4
-  >
-    Get Started
-  </button>
-</div>
+          <h2>Development Services</h2>
+          <div className="services-grid">
+            {mainServices.map((service) => (
+              <div key={service.id} className="service-card">
+                <div className="service-icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <ul className="service-features">
+                  {service.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+                <button
+                  className="service-cta"
+                  onClick={() => handleGetStartedClick(service.id)}
+                >
+                  Start Now
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Additional Services Section */}
-      {/* Additional Services Section */}
-<section className="additional-services" ref={additionalServicesRef}>
-  <div className={`specialized-container ${additionalServicesVisible ? "visible" : ""}`}>
-    <h2>Specialized Solutions</h2>
-    <div className="specialized-grid">
-      <div className="special-card">
-        <h3>UI/UX Design</h3>
-        <p>User-centered interface design</p>
-      </div>
-      <div className="special-card">
-        <h3>Data Analytics</h3>
-        <p>Business intelligence insights</p>
-      </div>
-      <div className="special-card">
-        <h3>Software Development</h3>
-        <p>Custom software solutions</p>
-      </div>
-      <div className="special-card">
-        <h3>Branding & Reputation Management</h3>
-        <p>Build and manage your brand identity</p>
-      </div>
-    </div>
-  </div>
-</section>
+    
+
+      {/* marketing services */}
+      <section className="marketing-services" ref={marketingRef}>
+        <div className={`services-container ${marketingVisible ? "visible" : ""}`}>
+          <h2>Digital Marketing Solutions</h2>
+          <div className="services-grid">
+            {digitalMarketingServices.map((service) => (
+              <div key={service.id} className="service-card">
+                <div className="service-icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <ul className="service-features">
+                  {service.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+                <button
+                  className="service-cta"
+                  onClick={() => handleGetStartedClick(service.id)}
+                >
+                  Start Now
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="content-services" ref={additionalServicesRef}>
+        <div className={`services-container ${additionalServicesVisible ? "visible" : ""}`}>
+          <h2>Content & Brand Management</h2>
+          <div className="services-grid">
+            {contentServices.map((service) => (
+              <div key={service.id} className="service-card">
+                <div className="service-icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <ul className="service-features">
+                  {service.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+                <button
+                  className="service-cta"
+                  onClick={() => handleGetStartedClick(service.id)}
+                >
+                  Start Now
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

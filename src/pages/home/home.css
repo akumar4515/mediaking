@@ -204,17 +204,21 @@
     width:150px;
     height:45px;
     font-size: 1.1rem;
-    background-color: #0a734b;
     border: none;
     color: white;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    background: linear-gradient(90deg, #3c8368, #7416b7);
+    background-size: 200% 100%;
+    transition: background-position 0.5s ease-in;
   }
   
+  
   .cta-button:hover {
-    background-color: #319c61;
+    /* background: linear-gradient(90deg, #0a734b, #410e66); */
+   background-position: 100% 0% ; 
   }
+
   
 
   .hero-contents,.hero-content {
@@ -330,7 +334,7 @@
   .about-content h2{
     font-size: 2.5rem;
     color: #dce7ee;
-    text-align: center;
+    text-align: start;
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -430,8 +434,9 @@
     transition: transform 0.3s;
     text-align: center;
     min-width: 300px;
-    height:450px;
-    min-height:450px;
+    /* height:450px; */
+    /* min-height:450px; */
+
     
   }
   .service-card h3{
@@ -461,14 +466,22 @@
   .know-more-button {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
-    background:linear-gradient(90deg,rgb(27, 94, 48), rgb(10, 91, 91) );
+   
     border: none;
     color: white;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 1rem;
+    background: linear-gradient(90deg, #3c8368, #7416b7);
+    background-size: 200% 100%;
+    transition: background-position 0.5s ease-in;
   }
+  .know-more-button:hover {
+   
+    background-position: 100% 0% ;
+  }
+
   .nav{
     padding:5px;
     display: flex;
