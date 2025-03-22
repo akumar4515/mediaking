@@ -43,11 +43,11 @@ What began as a passion for technology quickly turned into a mission to help bus
               </div>
               <div className="milestone">
                 <h3>2022</h3>
-                <p>Launched Analytics Platform</p>
+                <p>Launched Digital Services</p>
               </div>
               <div className="milestone">
                 <h3>2023</h3>
-                <p>Global Expansion</p>
+                <p>Start Expanding</p>
               </div>
             </div>
           </div>

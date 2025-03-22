@@ -20,14 +20,14 @@ import app from '../../assets/app.mp4';
 import software from '../../assets/software.mp4';
 import graphic from '../../assets/graphic.mp4';
 import digital from '../../assets/digital.mp4';
-import amzn from '../../assets/amzn.jpg';
-import ggl from '../../assets/google.jpg';
-import acntr from '../../assets/acntr.jpg';
-import deloit from '../../assets/dloit.jpg';
-import kpmg from '../../assets/kpmg.png';
+import cli1 from '../../assets/cli1.png';
+import cli2 from '../../assets/google.jpg';
+import cli3 from '../../assets/acntr.jpg';
+import cli4 from '../../assets/dloit.jpg';
+import cli5 from '../../assets/kpmg.png';
 import softImg from '../../assets/soft.webp';
 import contImg from '../../assets/contImg.jpg'
-import apnaClg from '../../assets/apna-clg.png';
+import cli6 from '../../assets/apna-clg.png';
 import fb from '../../assets/facebook.png';
 import insta from '../../assets/instagram.png';
 import lnkdn from '../../assets/linkedin.png';
@@ -125,68 +125,47 @@ export const Home = () => {
   
 
   return (
+    
     <div className="home-container" id="home">
       {/* Hero Section */}
-      <section id="home" className="hero-section">
-        <Slider {...sliderSettings}>
-          <div className="hero-slide">
-            <video autoPlay loop muted playsInline className="bg-video">
-              <source src={digital} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div className="hero-contents">
-              <h1>Mediaking Is Best In Digital Marketing</h1>
-              <p>We help your business to grow faster</p>
-              <button className="cta-button"  onClick={() => handleGetStartedClick(1)}>Learn More</button>
-            </div>
-          </div>
-          <div className="hero-slide">
-            <video autoPlay loop muted playsInline className="bg-video">
-              <source src={app} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div className="hero-contents">
-              <h1>Mediaking Is Best In App Development Service</h1>
-              <p>We create mobile app which is very easy to use by everyone</p>
-              <button className="cta-button"  onClick={() => handleGetStartedClick(2)}>Learn More</button>
-            </div>
-          </div>
-          <div className="hero-slide">
-            <video autoPlay loop muted playsInline className="bg-video">
-              <source src={graphic} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div className="hero-contents">
-              <h1>Mediaking Is Best In Graphic Design Service</h1>
-              <p>We Deliver You Creative & Catchy Post For Your Business</p>
-              <button className="cta-button"  onClick={() => handleGetStartedClick(9)}>Learn More</button>
-            </div>
-          </div>
-          <div className="hero-slide">
-            <video autoPlay loop muted playsInline className="bg-video">
-              <source src={web} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div className="hero-contents">
-              <h1>Beautiful ,Innovative & Effective Website</h1>
-              <p>We Promote Your All Goods Online & Generate Leads From Website</p>
-              <button className="cta-button"  onClick={() => handleGetStartedClick(1)}>Learn More</button>
-            </div>
-          </div>
-          <div className="hero-slide">
-            <video autoPlay loop muted playsInline className="bg-video">
-              <source src={software} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div className="hero-contents">
-              <h1>Mediaking Is Best In Software Development Service</h1>
-              <p>We Craft Software To Simplify Your Workflow Effortlessly</p>
-              <button className="cta-button"  onClick={() => handleGetStartedClick(3)}>Learn More</button>
-            </div>
-          </div>
-        </Slider>
-      </section>
+      <section className="hero-section" id="home">
+    <h1 className="sr-only">Mediaking - Premier Digital Solutions Provider</h1>
+    <Slider {...sliderSettings}>
+      <div className="hero-slide">
+        <video autoPlay loop muted playsInline className="bg-video">
+          <source src={digital} type="video/mp4" />
+        </video>
+        <div className="hero-contents">
+          <h2>Leading Digital Marketing Agency</h2>
+          <p>We help your business to grow faster</p>
+          <button className="cta-button" onClick={() => handleGetStartedClick(1)}>Learn More</button>
+        </div>
+      </div>
 
+      <div className="hero-slide">
+        <video autoPlay loop muted playsInline className="bg-video">
+          <source src={app} type="video/mp4" />
+        </video>
+        <div className="hero-contents">
+          <h2>Expert App Development Services</h2>
+          <p>User-friendly mobile applications for all platforms</p>
+          <button className="cta-button" onClick={() => handleGetStartedClick(2)}>Learn More</button>
+        </div>
+      </div>
+
+      {/* Other slides updated similarly with h2 */}
+      <div className="hero-slide">
+        <video autoPlay loop muted playsInline className="bg-video">
+          <source src={graphic} type="video/mp4" />
+        </video>
+        <div className="hero-contents">
+          <h2>Professional Graphic Design Solutions</h2>
+          <p>Creative visual content that engages your audience</p>
+          <button className="cta-button" onClick={() => handleGetStartedClick(9)}>Learn More</button>
+        </div>
+      </div>
+    </Slider>
+    </section>
      
       <section id="about" className="about-section">
         <div ref={aboutRef} className={`about-content ${aboutVisible ? "visible" : ""}`}>
@@ -282,22 +261,22 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
     
     <div className="clients-flex">
       <div className="client-item">
-        <img src={amzn} alt="Client 1" />
+        <img src={cli1} alt="Client 1" />
       </div>
       <div className="client-item">
-        <img src={ggl} alt="Client 2" />
+        <img src={cli2} alt="Client 2" />
       </div>
       <div className="client-item">
-        <img src={acntr} alt="Client 3" />
+        <img src={cli3} alt="Client 3" />
       </div>
       <div className="client-item">
-        <img src={kpmg} alt="Client 4" />
+        <img src={cli4} alt="Client 4" />
       </div>
       <div className="client-item">
-        <img src={deloit} alt="Client 5" />
+        <img src={cli5} alt="Client 5" />
       </div>
       <div className="client-item">
-        <img src={apnaClg} alt="Client 6" />
+        <img src={cli6} alt="Client 6" />
       </div>
     </div>
   </div>
@@ -407,7 +386,7 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
                 <div className="info-icon">✉️</div>
                 <div>
                   <h3>Email</h3>
-                  <p>mediaking773@gmail.com</p>
+                  <p>{process.env.REACT_APP_COMPANY_EMAIL}</p>
                 </div>
               </div>
             </div>

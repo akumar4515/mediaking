@@ -127,7 +127,7 @@ export const Contact = () => {
                 <div className="info-icon">✉️</div>
                 <div>
                   <h3>Email</h3>
-                  <p>mediaking773@gmail.com</p>
+                  <p>{process.env.REACT_APP_COMPANY_EMAIL}</p>
                 </div>
               </div>
             </div>

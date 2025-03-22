@@ -9,10 +9,13 @@
     scroll-behavior: smooth;
     line-height: 1.6;
     font-size: 1rem;  
+
   }
   
   .home-container {
     font-family: 'Arial', sans-serif;
+    width:100vw;
+    overflow-x: hidden;
   }
   
   /* Navigation Styles */
@@ -378,16 +381,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #ddd; */
-    height:600px;
-    /* object-fit: cover; */
+    /* height:600px; */
+    width:40vw;
+    object-fit: cover;
+   
     border-radius: 10px;;
   }
   .about-image img{
     height:100%;
-    width:100%;
-    object-fit: cover;
-    border-radius: 10px;;
+   width:100%;
+   object-fit: cover;
+
 
   }
   
@@ -652,6 +656,7 @@
   .contact-section {
     padding: 5rem 5%;
     width:100vw;
+    min-width:100vw;
     background:linear-gradient(90deg,rgb(3, 65, 68), rgb(1, 16, 77) );
     display: flex;
     flex-direction: column;
@@ -706,26 +711,27 @@ height:70vh;
     }
   }
   @media (max-width: 768px) {
+   
     .services-grid {
       flex-direction: column;
       align-items: center;
+      /* width:100vw; */
+    
     }
-    .service-card {
-      width:80vw;
-      max-width: 100%;
-    }
+   
+  
     .about-image {
       flex: 1;
       height:500px;
       width:90vw;
       /* object-fit: cover; */
-      border-radius: 10px;;
+      /* border-radius: 10px;; */
     }
     .about-image img{
       height:100%;
       width:100%;
       object-fit: cover;
-      border-radius: 10px;;
+      /* border-radius: 10px;; */
   
     }
     .about-text{
@@ -736,7 +742,14 @@ height:70vh;
       width:90vw;
     }
   }
-
+  @media (max-width: 480px) {
+    .service-card {
+      /* margin: 0 0rem; */
+      width:80vw;
+      min-width: 80vw;
+      max-width: 100%;
+    }
+  }
   /* animation */
 /* Services Section Animation */
 .service-content {
@@ -790,4 +803,3 @@ height:70vh;
 .choose-container.visible .reason-card:nth-child(2) { transition-delay: 0.4s; }
 .choose-container.visible .reason-card:nth-child(3) { transition-delay: 0.6s; }
 .choose-container.visible .reason-card:nth-child(4) { transition-delay: 0.8s; }
-
