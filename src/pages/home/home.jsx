@@ -355,7 +355,7 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
     </div>
   </div>
 </section>
-      {/* clients */}
+   
       {/* Clients Section */}
 <section className="clients-section">
 <div ref={clientsRef} className={`clients-container ${clientsVisible ? "visible" : ""}`}>
