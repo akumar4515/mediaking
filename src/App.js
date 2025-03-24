@@ -27,7 +27,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/service-form" element={<ServiceForm/>} />
         <Route path='*' element={<NotFound/>}/>
-        <Route path="/service-detail/:id" element={<ServiceDetail />} />
+        <Route path="/service-detail/:s_name" element={<ServiceDetail />} />
       </Routes>
       <Footer/>
     </Router>

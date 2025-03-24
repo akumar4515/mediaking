@@ -15,7 +15,7 @@ export const Services = () => {
   // Main services data
   const mainServices = [
     {
-      id: 1,
+      s_name: "web-development",
       title: "Web Development",
       icon: "🌐",
       features: [
@@ -27,7 +27,7 @@ export const Services = () => {
       ]
     },
     {
-      id: 2,
+      s_name: "app-development",
       title: "App Development",
       icon: "📱",
       features: [
@@ -39,7 +39,7 @@ export const Services = () => {
       ]
     },
     {
-      id: 3,
+      s_name: "seo-optimization",
       title: "SEO Optimization",
       icon: "🔍",
       features: [
@@ -51,11 +51,10 @@ export const Services = () => {
       ]
     }
   ];
-
-  // Digital Marketing Services
+  
   const digitalMarketingServices = [
     {
-      id: 4,
+      s_name: "social-media-marketing",
       title: "Social Media Marketing (SMM)",
       icon: "💬",
       features: [
@@ -67,7 +66,7 @@ export const Services = () => {
       ]
     },
     {
-      id: 5,
+      s_name: "ppc-advertising",
       title: "PPC Advertising",
       icon: "📈",
       features: [
@@ -79,7 +78,7 @@ export const Services = () => {
       ]
     },
     {
-      id: 6,
+      s_name: "ecommerce-marketing",
       title: "E-Commerce Marketing",
       icon: "🛒",
       features: [
@@ -91,11 +90,10 @@ export const Services = () => {
       ]
     }
   ];
-
-  // Content & Branding Services
+  
   const contentServices = [
     {
-      id: 7,
+      s_name: "content-creation",
       title: "Content Creation",
       icon: "✍️",
       features: [
@@ -107,7 +105,7 @@ export const Services = () => {
       ]
     },
     {
-      id: 8,
+      s_name: "branding-reputation",
       title: "Branding & Reputation",
       icon: "🏅",
       features: [
@@ -119,7 +117,7 @@ export const Services = () => {
       ]
     },
     {
-      id: 9,
+      s_name: "software-development",
       title: "Software Development",
       icon: "💻",
       features: [
@@ -132,8 +130,12 @@ export const Services = () => {
     }
   ];
 
-  const handleGetStartedClick = (serviceId) => {
-    navigate(`/service-detail/${serviceId}`);
+  const handleGetStartedClick = (serviceSlug) => {
+    if (!serviceSlug) {
+      console.error("Missing service slug");
+      return;
+    }
+    navigate(`/service-detail/${serviceSlug}`);
   };
 
   return (
@@ -152,7 +154,7 @@ export const Services = () => {
           <h2>Development Services</h2>
           <div className="services-grid">
             {mainServices.map((service) => (
-              <div key={service.id} className="service-card">
+              <div key={service.s_name} className="service-card">
                 <div className="service-icon">{service.icon}</div>
                 <h3>{service.title}</h3>
                 <ul className="service-features">
@@ -162,7 +164,8 @@ export const Services = () => {
                 </ul>
                 <button
                   className="service-cta"
-                  onClick={() => handleGetStartedClick(service.id)}
+                  onClick={() => handleGetStartedClick(service.s_name)}
+                  aria-label={`Get started with ${service.title}`}
                 >
                   Start Now
                 </button>
@@ -172,15 +175,13 @@ export const Services = () => {
         </div>
       </section>
 
-    
-
-      {/* marketing services */}
+      {/* Marketing services */}
       <section className="marketing-services" ref={marketingRef}>
         <div className={`services-container ${marketingVisible ? "visible" : ""}`}>
           <h2>Digital Marketing Solutions</h2>
           <div className="services-grid">
             {digitalMarketingServices.map((service) => (
-              <div key={service.id} className="service-card">
+              <div key={service.s_name} className="service-card">
                 <div className="service-icon">{service.icon}</div>
                 <h3>{service.title}</h3>
                 <ul className="service-features">
@@ -190,7 +191,8 @@ export const Services = () => {
                 </ul>
                 <button
                   className="service-cta"
-                  onClick={() => handleGetStartedClick(service.id)}
+                  onClick={() => handleGetStartedClick(service.s_name)}
+                  aria-label={`Get started with ${service.title}`}
                 >
                   Start Now
                 </button>
@@ -200,12 +202,13 @@ export const Services = () => {
         </div>
       </section>
 
+      {/* Content Services */}
       <section className="content-services" ref={additionalServicesRef}>
         <div className={`services-container ${additionalServicesVisible ? "visible" : ""}`}>
           <h2>Content & Brand Management</h2>
           <div className="services-grid">
             {contentServices.map((service) => (
-              <div key={service.id} className="service-card">
+              <div key={service.s_name} className="service-card">
                 <div className="service-icon">{service.icon}</div>
                 <h3>{service.title}</h3>
                 <ul className="service-features">
@@ -215,7 +218,8 @@ export const Services = () => {
                 </ul>
                 <button
                   className="service-cta"
-                  onClick={() => handleGetStartedClick(service.id)}
+                  onClick={() => handleGetStartedClick(service.s_name)}
+                  aria-label={`Get started with ${service.title}`}
                 >
                   Start Now
                 </button>

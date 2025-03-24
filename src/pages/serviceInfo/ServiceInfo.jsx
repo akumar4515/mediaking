@@ -4,12 +4,19 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { services } from '../serviceDetail';
 
 export const ServiceDetail = () => {
-  const { id } = useParams();
+  const { s_name } = useParams(); // Changed from 'id' to 's_name'
   const navigate = useNavigate();
-  const service = services.find((s) => s.id === parseInt(id));
+  const service = services.find((s) => s.s_name === s_name); // Removed parseInt
 
   if (!service) {
-    return <div>Service not found</div>;
+    return (
+      <div className="not-found">
+        <h2>Service not found</h2>
+        <button onClick={() => navigate('/services')}>
+          Back to Services
+        </button>
+      </div>
+    );
   }
 
   // Handle Enquire button click

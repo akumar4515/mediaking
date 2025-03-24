@@ -51,6 +51,18 @@ export const Home = () => {
   const [submitMsg,setSubmitMsg]=useState("");
   const [sending,setSending]=useState(false);
 
+  const SERVICE_SLUGS = {
+    WEB_DEVELOPMENT: "web-development",
+    APP_DEVELOPMENT: "app-development",
+    SEO_OPTIMIZATION: "seo-optimization",
+    SOCIAL_MEDIA_MARKETING: "social-media-marketing",
+    PPC_ADVERTISING: "ppc-advertising",
+    ECOMMERCE_MARKETING: "ecommerce-marketing",
+    BRANDING_REPUTATION: "branding-reputation",
+    CONTENT_CREATION: "content-creation",
+    SOFTWARE_DEVELOPMENT: "software-development"
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
@@ -116,11 +128,13 @@ export const Home = () => {
     nextArrow: <CustomArrow direction="next" />,
     // ... rest of settings
   };
-
-  const handleGetStartedClick = (serviceId) => {
-    navigate(`/service-detail/${serviceId}`); // Navigate to service detail page with ID
+  const handleGetStartedClick = (serviceSlug) => {
+    if (!serviceSlug) {
+      console.error("Missing service slug");
+      return;
+    }
+    navigate(`/service-detail/${serviceSlug}`); 
   };
-
   
   
 
@@ -129,43 +143,60 @@ export const Home = () => {
     <div className="home-container" id="home">
       {/* Hero Section */}
       <section className="hero-section" id="home">
-    <h1 className="sr-only">Mediaking - Premier Digital Solutions Provider</h1>
-    <Slider {...sliderSettings}>
-      <div className="hero-slide">
-        <video autoPlay loop muted playsInline className="bg-video">
-          <source src={digital} type="video/mp4" />
-        </video>
-        <div className="hero-contents">
-          <h2>Leading Digital Marketing Agency</h2>
-          <p>We help your business to grow faster</p>
-          <button className="cta-button" onClick={() => handleGetStartedClick(1)}>Learn More</button>
-        </div>
-      </div>
+        <h1 className="sr-only">Mediaking - Premier Digital Solutions Provider</h1>
+        <Slider {...sliderSettings}>
+          <div className="hero-slide">
+            <video autoPlay loop muted playsInline className="bg-video">
+              <source src={digital} type="video/mp4" />
+            </video>
+            <div className="hero-contents">
+              <h2>Leading Digital Marketing Agency</h2>
+              <p>We help your business to grow faster</p>
+              <button 
+                className="cta-button" 
+                onClick={() => handleGetStartedClick(SERVICE_SLUGS.WEB_DEVELOPMENT)}
+                aria-label="Learn more about our digital marketing services"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
 
-      <div className="hero-slide">
-        <video autoPlay loop muted playsInline className="bg-video">
-          <source src={app} type="video/mp4" />
-        </video>
-        <div className="hero-contents">
-          <h2>Expert App Development Services</h2>
-          <p>User-friendly mobile applications for all platforms</p>
-          <button className="cta-button" onClick={() => handleGetStartedClick(2)}>Learn More</button>
-        </div>
-      </div>
+          <div className="hero-slide">
+            <video autoPlay loop muted playsInline className="bg-video">
+              <source src={app} type="video/mp4" />
+            </video>
+            <div className="hero-contents">
+              <h2>Expert App Development Services</h2>
+              <p>User-friendly mobile applications for all platforms</p>
+              <button 
+                className="cta-button" 
+                onClick={() => handleGetStartedClick(SERVICE_SLUGS.APP_DEVELOPMENT)}
+                aria-label="Learn more about our app development services"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
 
-      {/* Other slides updated similarly with h2 */}
-      <div className="hero-slide">
-        <video autoPlay loop muted playsInline className="bg-video">
-          <source src={graphic} type="video/mp4" />
-        </video>
-        <div className="hero-contents">
-          <h2>Professional Graphic Design Solutions</h2>
-          <p>Creative visual content that engages your audience</p>
-          <button className="cta-button" onClick={() => handleGetStartedClick(9)}>Learn More</button>
-        </div>
-      </div>
-    </Slider>
-    </section>
+          <div className="hero-slide">
+            <video autoPlay loop muted playsInline className="bg-video">
+              <source src={graphic} type="video/mp4" />
+            </video>
+            <div className="hero-contents">
+              <h2>Professional Graphic Design Solutions</h2>
+              <p>Creative visual content that engages your audience</p>
+              <button 
+                className="cta-button" 
+                onClick={() => handleGetStartedClick(SERVICE_SLUGS.CONTENT_CREATION)}
+                aria-label="Learn more about our graphic design services"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </Slider>
+      </section>
      
       <section id="about" className="about-section">
         <div ref={aboutRef} className={`about-content ${aboutVisible ? "visible" : ""}`}>
@@ -191,68 +222,139 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
       </section>
 
       {/* Services Section */}
-      <section id="service" className="service-section">
-      <div ref={servicesRef} className={`service-content ${servicesVisible ? "visible" : ""}`}>
-        <h2>Our Services</h2>
-        <div className="service-grid">
-  <div className="service-card">
-    <img src={webImg} alt="Web Development" className="service-img" />
-    <h3>Web Development</h3>
-    <p>Custom website solutions using WordPress and custom coding.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(1)}>Start Now</button>
-  </div>
-  <div className="service-card">
-    <img src={appImg} alt="App Development" className="service-img" />
-    <h3>App Development</h3>
-    <p>Mobile & web applications with modern UI/UX.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(2)}>Start Now</button>
-  </div>
-  <div className="service-card">
-    <img src={seoImg} alt="SEO" className="service-img" />
-    <h3>Search Engine Optimization (SEO)</h3>
-    <p>Boost website rankings and organic traffic.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(4)}>Start Now</button>
-  </div>
-  <div className="service-card">
-    <img src={smm} alt="Social Media Marketing" className="service-img" />
-    <h3>Social Media Marketing (SMM)</h3>
-    <p>Strategic marketing for social media growth.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(5)}>Start Now</button>
-  </div>
-  <div className="service-card">
-    <img src={ppc} alt="PPC Advertising" className="service-img" />
-    <h3>Pay-Per-Click (PPC) Advertising</h3>
-    <p>High-converting ad campaigns for businesses.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(6)}>Start Now</button>
-  </div>
-  <div className="service-card">
-    <img src={ecm} alt="E-commerce Marketing" className="service-img" />
-    <h3>E-commerce & Marketplace Marketing</h3>
-    <p>Optimized strategies to grow online stores.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(7)}>Start Now</button>
-  </div>
-  <div className="service-card">
-    <img src={brand} alt="Branding & Reputation Management" className="service-img" />
-    <h3>Branding & Reputation Management</h3>
-    <p>Build and maintain a strong brand image.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(8)}>Start Now</button>
-  </div>
-  <div className="service-card">
-    <img src={contImg} alt="Content Creation" className="service-img" />
-    <h3>Content Creation</h3>
-    <p>Engaging content for blogs, videos, and social media.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(9)}>Start Now</button>
-  </div>
-  <div className="service-card">
-    <img src={softImg} alt="Software Development" className="service-img" />
-    <h3>Software Development</h3>
-    <p>Custom software solutions for businesses.</p>
-    <button className="know-more-button" onClick={() => handleGetStartedClick(3)}>Start Now</button>
-  </div>
-</div>
+  {/* Services Section */}
+<section id="service" className="service-section">
+  <div ref={servicesRef} className={`service-content ${servicesVisible ? "visible" : ""}`}>
+    <h2>Our Services</h2>
+    <div className="service-grid">
+      {/* Web Development */}
+      <div className="service-card">
+        <img src={webImg} alt="Web Development" className="service-img" />
+        <h3>Web Development</h3>
+        <p>Custom website solutions using WordPress and custom coding.</p>
+        <button 
+          className="know-more-button" 
+          onClick={() => handleGetStartedClick(SERVICE_SLUGS.WEB_DEVELOPMENT)}
+          aria-label="Start web development service"
+        >
+          Start Now
+        </button>
+      </div>
 
-        </div>
-      </section>
+      {/* App Development */}
+      <div className="service-card">
+        <img src={appImg} alt="App Development" className="service-img" />
+        <h3>App Development</h3>
+        <p>Mobile & web applications with modern UI/UX.</p>
+        <button 
+          className="know-more-button" 
+          onClick={() => handleGetStartedClick(SERVICE_SLUGS.APP_DEVELOPMENT)}
+          aria-label="Start app development service"
+        >
+          Start Now
+        </button>
+      </div>
+
+      {/* SEO */}
+      <div className="service-card">
+        <img src={seoImg} alt="SEO" className="service-img" />
+        <h3>Search Engine Optimization (SEO)</h3>
+        <p>Boost website rankings and organic traffic.</p>
+        <button 
+          className="know-more-button" 
+          onClick={() => handleGetStartedClick(SERVICE_SLUGS.SEO_OPTIMIZATION)}
+          aria-label="Start SEO service"
+        >
+          Start Now
+        </button>
+      </div>
+
+      {/* Social Media Marketing */}
+      <div className="service-card">
+        <img src={smm} alt="Social Media Marketing" className="service-img" />
+        <h3>Social Media Marketing (SMM)</h3>
+        <p>Strategic marketing for social media growth.</p>
+        <button 
+          className="know-more-button" 
+          onClick={() => handleGetStartedClick(SERVICE_SLUGS.SOCIAL_MEDIA_MARKETING)}
+          aria-label="Start social media marketing service"
+        >
+          Start Now
+        </button>
+      </div>
+
+      {/* PPC Advertising */}
+      <div className="service-card">
+        <img src={ppc} alt="PPC Advertising" className="service-img" />
+        <h3>Pay-Per-Click (PPC) Advertising</h3>
+        <p>High-converting ad campaigns for businesses.</p>
+        <button 
+          className="know-more-button" 
+          onClick={() => handleGetStartedClick(SERVICE_SLUGS.PPC_ADVERTISING)}
+          aria-label="Start PPC advertising service"
+        >
+          Start Now
+        </button>
+      </div>
+
+      {/* E-commerce Marketing */}
+      <div className="service-card">
+        <img src={ecm} alt="E-commerce Marketing" className="service-img" />
+        <h3>E-commerce & Marketplace Marketing</h3>
+        <p>Optimized strategies to grow online stores.</p>
+        <button 
+          className="know-more-button" 
+          onClick={() => handleGetStartedClick(SERVICE_SLUGS.ECOMMERCE_MARKETING)}
+          aria-label="Start e-commerce marketing service"
+        >
+          Start Now
+        </button>
+      </div>
+
+      {/* Branding & Reputation Management */}
+      <div className="service-card">
+        <img src={brand} alt="Branding & Reputation Management" className="service-img" />
+        <h3>Branding & Reputation Management</h3>
+        <p>Build and maintain a strong brand image.</p>
+        <button 
+          className="know-more-button" 
+          onClick={() => handleGetStartedClick(SERVICE_SLUGS.BRANDING_REPUTATION)}
+          aria-label="Start branding service"
+        >
+          Start Now
+        </button>
+      </div> {/* This closing tag was missing */}
+
+      {/* Content Creation */}
+      <div className="service-card">
+        <img src={contImg} alt="Content Creation" className="service-img" />
+        <h3>Content Creation</h3>
+        <p>Engaging content for blogs, videos, and social media.</p>
+        <button 
+          className="know-more-button" 
+          onClick={() => handleGetStartedClick(SERVICE_SLUGS.CONTENT_CREATION)}
+          aria-label="Start content creation service"
+        >
+          Start Now
+        </button>
+      </div>
+
+      {/* Software Development */}
+      <div className="service-card">
+        <img src={softImg} alt="Software Development" className="service-img" />
+        <h3>Software Development</h3>
+        <p>Custom software solutions for businesses.</p>
+        <button 
+          className="know-more-button" 
+          onClick={() => handleGetStartedClick(SERVICE_SLUGS.SOFTWARE_DEVELOPMENT)}
+          aria-label="Start software development service"
+        >
+          Start Now
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
       {/* clients */}
       {/* Clients Section */}
 <section className="clients-section">

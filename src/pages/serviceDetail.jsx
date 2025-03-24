@@ -1,6 +1,6 @@
 export const services = [
     {
-        id: 1,
+        s_name: "web-development",
         title: "Web Development",
         icon: "💻",
         priceRange: "$999 - $4999",
@@ -20,7 +20,7 @@ export const services = [
         ],
     },
     {
-        id: 2,
+        s_name: "app-development",
         title: "App Development",
         icon: "📱",
         priceRange: "$1999 - $9999",
@@ -36,7 +36,7 @@ export const services = [
         ],
     },
     {
-        id: 3,
+        s_name: "software-development",
         title: "Software Development",
         icon: "🖥️",
         priceRange: "$2999 - $14999",
@@ -52,11 +52,11 @@ export const services = [
         ],
     },
     {
-        id: 4,
+        s_name: "seo-optimization",
         title: "SEO Optimization",
         icon: "🔍",
         priceRange: "$499 - $4999",
-        shortDesc: "Enhance your website’s ranking and visibility",
+        shortDesc: "Enhance your website's ranking and visibility",
         features: [
             { name: "Keyword Research", description: "Find high-ranking keywords for your niche to increase organic traffic." },
             { name: "On-Page SEO", description: "Optimize your website structure, content, and meta tags for better rankings." },
@@ -68,7 +68,7 @@ export const services = [
         ],
     },
     {
-        id: 5,
+        s_name: "social-media-marketing",
         title: "Social Media Marketing (SMM)",
         icon: "📱",
         priceRange: "$499 - $4999",
@@ -84,7 +84,7 @@ export const services = [
         ],
     },
     {
-        id: 6,
+        s_name: "ppc-advertising",
         title: "Pay-Per-Click (PPC) Advertising",
         icon: "💰",
         priceRange: "$499 - $9999",
@@ -100,7 +100,7 @@ export const services = [
         ],
     },
     {
-        id: 7,
+        s_name: "ecommerce-marketing",
         title: "E-commerce Marketplace Marketing",
         icon: "🛒",
         priceRange: "$999 - $9999",
@@ -116,11 +116,11 @@ export const services = [
         ],
     },
     {
-        id: 8,
+        s_name: "branding-reputation",
         title: "Branding & Reputation Management",
         icon: "🏆",
         priceRange: "$999 - $9999",
-        shortDesc: "Build, manage, and protect your brand’s reputation",
+        shortDesc: "Build, manage, and protect your brand's reputation",
         features: [
             { name: "Brand Identity", description: "Develop logos, color schemes, and brand messaging." },
             { name: "Crisis Management", description: "Monitor and respond to negative reviews effectively." },
@@ -132,7 +132,7 @@ export const services = [
         ],
     },
     {
-        id: 9,
+        s_name: "content-creation",
         title: "Content Creation",
         icon: "✍️",
         priceRange: "$299 - $1999",
