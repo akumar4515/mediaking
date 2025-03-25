@@ -17,4 +17,4 @@ Disallow: /private/
 Disallow: /api/
 Disallow: /dashboard/
 Disallow: /user/
-Sitemap: https://master.d3hz7z4ixt95ro.amplifyapp.com/sitemap.xml
+Sitemap: https://mediaking-royal.netlify.app/sitemap.xml
