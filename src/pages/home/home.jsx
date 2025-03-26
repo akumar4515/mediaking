@@ -201,15 +201,15 @@ export const Home = () => {
       <section id="about" className="about-section">
         <div ref={aboutRef} className={`about-content ${aboutVisible ? "visible" : ""}`}>
           <h2>About Us</h2>
-          <p>At Mediaking, we are passionate about transforming ideas into powerful digital solutions. We specialize in website development, mobile app development, digital marketing, social media management, and web hosting services. Our team is dedicated to delivering high-quality, user-friendly, and scalable solutions that help businesses establish a strong online presence.
+          <p>At Webexprt, we are passionate about transforming ideas into powerful digital solutions. We specialize in website development, mobile app development, digital marketing, social media management, and web hosting services. Our team is dedicated to delivering high-quality, user-friendly, and scalable solutions that help businesses establish a strong online presence.
 
-With a focus on innovation, creativity, and performance, we ensure that our clients stay ahead in the digital landscape. Whether you're a startup or an established business, Mediaking is here to provide tailored solutions to help you grow and succeed.
+With a focus on innovation, creativity, and performance, we ensure that our clients stay ahead in the digital landscape. Whether you're a startup or an established business, Webexprt is here to provide tailored solutions to help you grow and succeed.
 
 🚀 Empowering businesses with technology—one solution at a time.</p>
           <div className="about-details">
             <div className="about-text">
               <h3>Our Mission</h3>
-              <p>At Mediaking, our mission is to empower businesses and individuals with cutting-edge digital solutions that drive success. We strive to deliver high-quality, scalable, and innovative web and mobile applications, digital marketing strategies, and hosting services tailored to our clients' needs.
+              <p>At Webexprt, our mission is to empower businesses and individuals with cutting-edge digital solutions that drive success. We strive to deliver high-quality, scalable, and innovative web and mobile applications, digital marketing strategies, and hosting services tailored to our clients' needs.
 
 Our goal is to bridge the gap between technology and business growth, ensuring seamless digital experiences through modern development practices, user-friendly designs, and result-oriented strategies.</p>
             </div>

@@ -25,7 +25,7 @@
     align-items: center;
     padding: 1rem 5%;
     width:100vw;
-    background:linear-gradient(120deg, rgb(2, 3, 78), rgb(8, 34, 0) );
+    background:linear-gradient(120deg, rgb(10, 10, 21), rgb(8, 0, 34) );
     color: white;
     position: fixed;
     width: 100%;
@@ -35,13 +35,15 @@
     /* backdrop-filter: blur(10px);  */
   }
   .logo{
-    height:40px;
+    height:60px;
+
     cursor: pointer;
     object-fit: cover;
   }
   .logo img{
     height:100%;
-    object-fit: cover;
+    
+ object-fit: cover;
    
 
   }

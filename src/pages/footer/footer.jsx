@@ -6,7 +6,7 @@ export const Footer=()=>{
     return(
         <footer className="footer-section">
         <div className="footer-content">
-          <p>© 2025 Mediaking. All rights reserved.</p>
+          <p>© 2021 Webexprt. All rights reserved.</p>
           <div className="socials-links">
             <a href="#facebook">Facebook</a>
             <a href="#twitter">Twitter</a>
