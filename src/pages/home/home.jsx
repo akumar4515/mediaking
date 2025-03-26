@@ -20,10 +20,10 @@ import app from '../../assets/app.mp4';
 import software from '../../assets/software.mp4';
 import graphic from '../../assets/graphic.mp4';
 import digital from '../../assets/digital.mp4';
-import cli1 from '../../assets/cli1.png';
-import cli2 from '../../assets/google.jpg';
-import cli3 from '../../assets/acntr.jpg';
-import cli4 from '../../assets/dloit.jpg';
+import cli1 from '../../assets/cli1.webp';
+import cli2 from '../../assets/cli2.png';
+import cli3 from '../../assets/cli3.png';
+import cli4 from '../../assets/cli4.png';
 import cli5 from '../../assets/kpmg.png';
 import softImg from '../../assets/soft.webp';
 import contImg from '../../assets/contImg.jpg'
@@ -374,12 +374,12 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
       <div className="client-item">
         <img src={cli4} alt="Client 4" />
       </div>
-      <div className="client-item">
+      {/* <div className="client-item">
         <img src={cli5} alt="Client 5" />
       </div>
       <div className="client-item">
         <img src={cli6} alt="Client 6" />
-      </div>
+      </div> */}
     </div>
   </div>
 </section>
@@ -481,7 +481,7 @@ Our goal is to bridge the gap between technology and business growth, ensuring s
                 <div className="info-icon">📞</div>
                 <div>
                   <h3>Phone Numbers</h3>
-                  <p>+91 7370895978</p>
+                  <p>+91 7079367125</p>
                 </div>
               </div>
               <div className="info-item">

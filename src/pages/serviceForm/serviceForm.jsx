@@ -174,7 +174,7 @@ export const ServiceForm = () => {
               <div className="info-icon">📞</div>
               <div>
                 <h3>Phone Numbers</h3>
-                <p>+91 7370895978</p>
+                <p>+91 7079367125</p>
               </div>
             </div>
             <div className="info-item">
