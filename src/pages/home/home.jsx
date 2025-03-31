@@ -1,21 +1,19 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from '@emailjs/browser';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./home.css";
+import styles from "./home.module.css";
 import webImg from '../../assets/web.png';
 import seoImg from '../../assets/seo.webp';
 import aboutImg from '../../assets/about.png';
-import ecm from '../../assets/ecm.jpg'
+import ecm from '../../assets/ecm.jpg';
 import ppc from '../../assets/ppc.webp';
 import smm from '../../assets/cm.png';
 import brand from '../../assets/brand.jpg';
-import web from '../../assets/web.mp4'; 
-import appImg from '../../assets/app.jpg'
-// Add more videos for the slider
+import web from '../../assets/web.mp4';
+import appImg from '../../assets/app.jpg';
 import app from '../../assets/app.mp4';
 import software from '../../assets/software.mp4';
 import graphic from '../../assets/graphic.mp4';
@@ -26,7 +24,7 @@ import cli3 from '../../assets/cli3.png';
 import cli4 from '../../assets/cli4.png';
 import cli5 from '../../assets/kpmg.png';
 import softImg from '../../assets/soft.webp';
-import contImg from '../../assets/contImg.jpg'
+import contImg from '../../assets/contImg.jpg';
 import cli6 from '../../assets/apna-clg.png';
 import fb from '../../assets/facebook.png';
 import insta from '../../assets/instagram.png';
@@ -34,11 +32,10 @@ import lnkdn from '../../assets/linkedin.png';
 import x from '../../assets/twitter.png';
 import useScrollAnimation from "../ScrollAnimation";
 
-
 export const Home = () => {
   const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
   const UserTemplateID = process.env.REACT_APP_EMAILJS_USER_TEMPLATE_ID;
-  const CompanyTemplateId=process.env.REACT_APP_EMAILJS_COMPANY_TEMPLATE_ID;
+  const CompanyTemplateId = process.env.REACT_APP_EMAILJS_COMPANY_TEMPLATE_ID;
   const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
   const navigate = useNavigate();
 
@@ -46,10 +43,9 @@ export const Home = () => {
   const [servicesRef, servicesVisible] = useScrollAnimation();
   const [clientsRef, clientsVisible] = useScrollAnimation();
   const [whyChooseRef, whyChooseVisible] = useScrollAnimation();
- 
 
-  const [submitMsg,setSubmitMsg]=useState("");
-  const [sending,setSending]=useState(false);
+  const [submitMsg, setSubmitMsg] = useState("");
+  const [sending, setSending] = useState(false);
 
   const SERVICE_SLUGS = {
     WEB_DEVELOPMENT: "web-development",
@@ -93,427 +89,251 @@ export const Home = () => {
         publicKey
       );
       setSending(false);
-      navigate('/thankyou')
-      // setSubmitMsg("Thanks For Contacting Us")
-      e.target.user_name.value="";
-      e.target.user_email.value="";
-      e.target.user_tel.value="";
-      e.target.user_message.value="";
+      navigate('/thank-you'); // Corrected route to match component name
+      e.target.reset();
     } catch (error) {
       console.error('Error:', error);
-      alert('Failed to send message');
+      setSubmitMsg('Failed to send message. Please try again.');
+      setSending(false);
     }
   };
 
-  const handleNewForm=(e)=>{
-    e.preventDefault();
-    setSubmitMsg("")
-    
-  }
+  const handleNewForm = () => {
+    setSubmitMsg("");
+  };
 
   const CustomArrow = ({ onClick, direction }) => (
     <button 
-      className={`slider-arrow ${direction}`}
+      className={`${styles.sliderArrow} ${direction === 'prev' ? styles.prev : styles.next}`}
       onClick={onClick}
       aria-label={direction === 'prev' ? 'Previous slide' : 'Next slide'}
     >
-      {direction === 'prev' ? '←' : '→'}
+      {direction === 'prev' ? '❮' : '❯'}
     </button>
   );
-  
+
   const sliderSettings = {
-    // ... other settings
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
     arrows: true,
     prevArrow: <CustomArrow direction="prev" />,
     nextArrow: <CustomArrow direction="next" />,
-    // ... rest of settings
   };
+
   const handleGetStartedClick = (serviceSlug) => {
     if (!serviceSlug) {
       console.error("Missing service slug");
       return;
     }
-    navigate(`/service-detail/${serviceSlug}`); 
+    navigate(`/service-detail/${serviceSlug}`);
   };
-  
-  
 
   return (
-    
-    <div className="home-container" id="home">
+    <div className={styles.homeContainer} id="home">
       {/* Hero Section */}
-      <section className="hero-section" id="home">
-        <h1 className="sr-only">Mediaking - Premier Digital Solutions Provider</h1>
+      <section className={styles.heroSection}>
         <Slider {...sliderSettings}>
-          <div className="hero-slide">
-            <video autoPlay loop muted playsInline className="bg-video">
+          <div className={styles.heroSlide}>
+            <video autoPlay loop muted playsInline disablePictureInPicture className={styles.bgVideo}>
               <source src={digital} type="video/mp4" />
             </video>
-            <div className="hero-contents">
-              <h2>Leading Digital Marketing Agency</h2>
-              <p>We help your business to grow faster</p>
+            <div className={styles.heroContents}>
+              <h2>Leading Digital Solutions</h2>
+              <p>Grow your business with cutting-edge technology</p>
               <button 
-                className="cta-button" 
+                className={styles.ctaButton}
                 onClick={() => handleGetStartedClick(SERVICE_SLUGS.WEB_DEVELOPMENT)}
-                aria-label="Learn more about our digital marketing services"
               >
-                Learn More
+                Discover More
               </button>
             </div>
           </div>
-
-          <div className="hero-slide">
-            <video autoPlay loop muted playsInline className="bg-video">
+          <div className={styles.heroSlide}>
+            <video autoPlay loop muted playsInline disablePictureInPicture className={styles.bgVideo}>
               <source src={app} type="video/mp4" />
             </video>
-            <div className="hero-contents">
-              <h2>Expert App Development Services</h2>
-              <p>User-friendly mobile applications for all platforms</p>
+            <div className={styles.heroContents}>
+              <h2>Expert App Development</h2>
+              <p>Seamless mobile experiences for all platforms</p>
               <button 
-                className="cta-button" 
+                className={styles.ctaButton}
                 onClick={() => handleGetStartedClick(SERVICE_SLUGS.APP_DEVELOPMENT)}
-                aria-label="Learn more about our app development services"
               >
-                Learn More
+                Discover More
               </button>
             </div>
           </div>
-
-          <div className="hero-slide">
-            <video autoPlay loop muted playsInline className="bg-video">
+          <div className={styles.heroSlide}>
+            <video autoPlay loop muted playsInline disablePictureInPicture className={styles.bgVideo}>
               <source src={graphic} type="video/mp4" />
             </video>
-            <div className="hero-contents">
-              <h2>Professional Graphic Design Solutions</h2>
-              <p>Creative visual content that engages your audience</p>
+            <div className={styles.heroContents}>
+              <h2>Creative Graphic Design</h2>
+              <p>Visuals that captivate and convert</p>
               <button 
-                className="cta-button" 
+                className={styles.ctaButton}
                 onClick={() => handleGetStartedClick(SERVICE_SLUGS.CONTENT_CREATION)}
-                aria-label="Learn more about our graphic design services"
               >
-                Learn More
+                Discover More
               </button>
             </div>
           </div>
         </Slider>
       </section>
-     
-      <section id="about" className="about-section">
-        <div ref={aboutRef} className={`about-content ${aboutVisible ? "visible" : ""}`}>
-          <h2>About Us</h2>
-          <p>At Webexprt, we are deeply committed to turning ideas into impactful digital solutions that drive business growth. Our expertise lies in website development, mobile app development, digital marketing, social media management, and web hosting services. We understand that every business is unique, and that's why we tailor our solutions to meet the specific needs of each client.
 
-Our team of skilled professionals combines technical knowledge with creative innovation to deliver high-quality, user-friendly, and scalable solutions. Whether you're looking to build a responsive website, develop a feature-rich mobile app, or expand your reach through strategic digital marketing campaigns, we have the expertise to make it happen.
-
-At Webexprt, we prioritize performance, ensuring that the solutions we deliver are fast, secure, and optimized for success. We empower businesses to establish a strong online presence, helping them connect with their target audience and achieve their goals.
-
-From startups seeking to make a bold entrance into the market to established businesses aiming to enhance their digital footprint, we are dedicated to providing customized solutions that meet your unique requirements. Our commitment to innovation, creativity, and customer satisfaction sets us apart as a trusted partner in your digital journey.
-
-Webexprt is more than just a service provider—we are your partner in growth, committed to empowering businesses with cutting-edge technology and forward-thinking strategies. Together, we can turn your vision into reality and help your business thrive in the competitive digital landscape. 🚀
-</p>
-          <div className="about-details">
-            <div className="about-text">
-              <h3>Our Mission</h3>
-              <p>At Webexprt, our mission is to empower businesses by delivering innovative, high-quality digital solutions that drive growth and success. We are committed to transforming ideas into impactful digital experiences through website development, mobile app solutions, digital marketing, social media management, and web hosting services.
-
-Our goal is to provide businesses with the tools and strategies they need to establish a powerful online presence, connect with their audience, and achieve long-term success. By combining creativity, technology, and performance-driven approaches, we strive to deliver solutions that are not only effective but also scalable and future-ready.
-
-We believe in building lasting partnerships with our clients, understanding their unique goals, and providing personalized solutions that align with their vision. At Webexprt, we are dedicated to helping businesses of all sizes grow, innovate, and thrive in the digital world. 🚀</p>
-            </div>
-            <div className="about-image">
-              <img src={aboutImg} alt="about-img"/>
-            </div>
+      {/* About Section */}
+      <section id="about" className={styles.aboutSection}>
+  <div ref={aboutRef} className={`${styles.aboutContent} ${aboutVisible ? styles.visible : ""}`}>
+    <h2>About Us</h2>
+    <p>
+      At Webexprt, we’re more than just a digital agency—we’re your partners in turning bold ideas into transformative solutions. With a passion for innovation and a commitment to excellence, we empower businesses to thrive in the digital age through cutting-edge technology and creative expertise.
+    </p>
+    <div className={styles.aboutDetails}>
+      <div className={styles.aboutText}>
+        <h3>Our Mission</h3>
+        <p>
+          Our mission is to bridge the gap between your vision and reality. Whether it’s crafting stunning, responsive websites, building robust mobile apps, or driving growth with tailored marketing strategies, we deliver solutions that are as unique as your business. With over a decade of experience, our team blends technical mastery with creative flair to help you stand out, connect with your audience, and achieve measurable success.
+        </p>
+      </div>
+      <div className={styles.aboutImage}>
+        <img src={aboutImg} alt="About Webexprt" />
+      </div>
+    </div>
+  </div>
+</section>
+      {/* Services Section */}
+      <section id="service" className={styles.serviceSection}>
+        <div ref={servicesRef} className={`${styles.serviceContent} ${servicesVisible ? styles.visible : ""}`}>
+          <h2>Our Services</h2>
+          <div className={styles.serviceGrid}>
+            {[
+              { img: webImg, title: "Web Development", desc: "Custom, responsive websites", slug: SERVICE_SLUGS.WEB_DEVELOPMENT },
+              { img: appImg, title: "App Development", desc: "Modern mobile solutions", slug: SERVICE_SLUGS.APP_DEVELOPMENT },
+              { img: seoImg, title: "SEO Optimization", desc: "Boost your rankings", slug: SERVICE_SLUGS.SEO_OPTIMIZATION },
+              { img: smm, title: "Social Media Marketing", desc: "Grow your audience", slug: SERVICE_SLUGS.SOCIAL_MEDIA_MARKETING },
+              { img: ppc, title: "PPC Advertising", desc: "High-ROI campaigns", slug: SERVICE_SLUGS.PPC_ADVERTISING },
+              { img: ecm, title: "E-commerce Marketing", desc: "Scale your online store", slug: SERVICE_SLUGS.ECOMMERCE_MARKETING },
+              { img: brand, title: "Branding & Reputation", desc: "Build your brand", slug: SERVICE_SLUGS.BRANDING_REPUTATION },
+              { img: contImg, title: "Content Creation", desc: "Engaging content", slug: SERVICE_SLUGS.CONTENT_CREATION },
+              { img: softImg, title: "Software Development", desc: "Custom software", slug: SERVICE_SLUGS.SOFTWARE_DEVELOPMENT }
+            ].map((service, index) => (
+              <div key={index} className={styles.serviceCard}>
+                <img src={service.img} alt={service.title} className={styles.serviceImg} />
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+                <button 
+                  className={styles.knowMoreButton}
+                  onClick={() => handleGetStartedClick(service.slug)}
+                >
+                  Start Now
+                </button>
+              </div>
+            ))}
           </div>
         </div>
-        
       </section>
 
-      {/* Services Section */}
-  {/* Services Section */}
-<section id="service" className="service-section">
-  <div ref={servicesRef} className={`service-content ${servicesVisible ? "visible" : ""}`}>
-    <h2>Our Services</h2>
-    <div className="service-grid">
-      {/* Web Development */}
-      <div className="service-card">
-        <img src={webImg} alt="Web Development" className="service-img" />
-        <h3>Web Development</h3>
-        <p>Custom website solutions using WordPress and custom coding.</p>
-        <button 
-          className="know-more-button" 
-          onClick={() => handleGetStartedClick(SERVICE_SLUGS.WEB_DEVELOPMENT)}
-          aria-label="Start web development service"
-        >
-          Start Now
-        </button>
-      </div>
-
-      {/* App Development */}
-      <div className="service-card">
-        <img src={appImg} alt="App Development" className="service-img" />
-        <h3>App Development</h3>
-        <p>Mobile & web applications with modern UI/UX.</p>
-        <button 
-          className="know-more-button" 
-          onClick={() => handleGetStartedClick(SERVICE_SLUGS.APP_DEVELOPMENT)}
-          aria-label="Start app development service"
-        >
-          Start Now
-        </button>
-      </div>
-
-      {/* SEO */}
-      <div className="service-card">
-        <img src={seoImg} alt="SEO" className="service-img" />
-        <h3>Search Engine Optimization (SEO)</h3>
-        <p>Boost website rankings and organic traffic.</p>
-        <button 
-          className="know-more-button" 
-          onClick={() => handleGetStartedClick(SERVICE_SLUGS.SEO_OPTIMIZATION)}
-          aria-label="Start SEO service"
-        >
-          Start Now
-        </button>
-      </div>
-
-      {/* Social Media Marketing */}
-      <div className="service-card">
-        <img src={smm} alt="Social Media Marketing" className="service-img" />
-        <h3>Social Media Marketing (SMM)</h3>
-        <p>Strategic marketing for social media growth.</p>
-        <button 
-          className="know-more-button" 
-          onClick={() => handleGetStartedClick(SERVICE_SLUGS.SOCIAL_MEDIA_MARKETING)}
-          aria-label="Start social media marketing service"
-        >
-          Start Now
-        </button>
-      </div>
-
-      {/* PPC Advertising */}
-      <div className="service-card">
-        <img src={ppc} alt="PPC Advertising" className="service-img" />
-        <h3>Pay-Per-Click (PPC) Advertising</h3>
-        <p>High-converting ad campaigns for businesses.</p>
-        <button 
-          className="know-more-button" 
-          onClick={() => handleGetStartedClick(SERVICE_SLUGS.PPC_ADVERTISING)}
-          aria-label="Start PPC advertising service"
-        >
-          Start Now
-        </button>
-      </div>
-
-      {/* E-commerce Marketing */}
-      <div className="service-card">
-        <img src={ecm} alt="E-commerce Marketing" className="service-img" />
-        <h3>E-commerce & Marketplace Marketing</h3>
-        <p>Optimized strategies to grow online stores.</p>
-        <button 
-          className="know-more-button" 
-          onClick={() => handleGetStartedClick(SERVICE_SLUGS.ECOMMERCE_MARKETING)}
-          aria-label="Start e-commerce marketing service"
-        >
-          Start Now
-        </button>
-      </div>
-
-      {/* Branding & Reputation Management */}
-      <div className="service-card">
-        <img src={brand} alt="Branding & Reputation Management" className="service-img" />
-        <h3>Branding & Reputation Management</h3>
-        <p>Build and maintain a strong brand image.</p>
-        <button 
-          className="know-more-button" 
-          onClick={() => handleGetStartedClick(SERVICE_SLUGS.BRANDING_REPUTATION)}
-          aria-label="Start branding service"
-        >
-          Start Now
-        </button>
-      </div> {/* This closing tag was missing */}
-
-      {/* Content Creation */}
-      <div className="service-card">
-        <img src={contImg} alt="Content Creation" className="service-img" />
-        <h3>Content Creation</h3>
-        <p>Engaging content for blogs, videos, and social media.</p>
-        <button 
-          className="know-more-button" 
-          onClick={() => handleGetStartedClick(SERVICE_SLUGS.CONTENT_CREATION)}
-          aria-label="Start content creation service"
-        >
-          Start Now
-        </button>
-      </div>
-
-      {/* Software Development */}
-      <div className="service-card">
-        <img src={softImg} alt="Software Development" className="service-img" />
-        <h3>Software Development</h3>
-        <p>Custom software solutions for businesses.</p>
-        <button 
-          className="know-more-button" 
-          onClick={() => handleGetStartedClick(SERVICE_SLUGS.SOFTWARE_DEVELOPMENT)}
-          aria-label="Start software development service"
-        >
-          Start Now
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-   
       {/* Clients Section */}
-<section className="clients-section">
-<div ref={clientsRef} className={`clients-container ${clientsVisible ? "visible" : ""}`}>
-    <h2>Our Valued Clients</h2>
-    
-    <div className="clients-flex">
-      <div className="client-item">
-        <img src={cli1} alt="Client 1" />
-      </div>
-      <div className="client-item">
-        <img src={cli2} alt="Client 2" />
-      </div>
-      <div className="client-item">
-        <img src={cli3} alt="Client 3" />
-      </div>
-      <div className="client-item">
-        <img src={cli4} alt="Client 4" />
-      </div>
-      {/* <div className="client-item">
-        <img src={cli5} alt="Client 5" />
-      </div>
-      <div className="client-item">
-        <img src={cli6} alt="Client 6" />
-      </div> */}
-    </div>
-  </div>
-</section>
-      {/* choose us */}
-      <section className="why-choose-section">
-      <div ref={whyChooseRef} className={`choose-container ${whyChooseVisible ? "visible" : ""}`}>
+      <section className={styles.clientsSection}>
+        <div ref={clientsRef} className={`${styles.clientsContainer} ${clientsVisible ? styles.visible : ""}`}>
+          <h2>Our Valued Clients</h2>
+          <div className={styles.clientsFlex}>
+            {[cli1, cli2, cli3, cli4, cli5, cli6].map((client, index) => (
+              <div key={index} className={styles.clientItem}>
+                <img src={client} alt={`Client ${index + 1}`} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    <h2>Why Choose Us?</h2>
-    
-    <div className="reasons-flex">
-      <div className="reason-card">
-        <div className="reason-number">01</div>
-        <h3>Proven Results</h3>
-        <p>Demonstrated success in delivering measurable outcomes for our clients</p>
-      </div>
-
-      <div className="reason-card">
-        <div className="reason-number">02</div>
-        <h3>Industry Experts</h3>
-        <p>Certified professionals with 10+ years combined experience</p>
-      </div>
-
-      <div className="reason-card">
-        <div className="reason-number">03</div>
-        <h3>Custom Strategies</h3>
-        <p>Tailored solutions to meet your unique business needs</p>
-      </div>
-
-      <div className="reason-card">
-        <div className="reason-number">04</div>
-        <h3>24/7 Support</h3>
-        <p>Round-the-clock customer service and technical support</p>
-      </div>
-    </div>
-  </div>
-</section>
+      {/* Why Choose Us Section */}
+      <section className={styles.whyChooseSection}>
+        <div ref={whyChooseRef} className={`${styles.chooseContainer} ${whyChooseVisible ? styles.visible : ""}`}>
+          <h2>Why Choose Us?</h2>
+          <div className={styles.reasonsFlex}>
+            {[
+              { num: "01", title: "Proven Results", desc: "Measurable success for clients" },
+              { num: "02", title: "Industry Experts", desc: "10+ years of experience" },
+              { num: "03", title: "Custom Strategies", desc: "Tailored to your needs" },
+              { num: "04", title: "24/7 Support", desc: "Always here for you" }
+            ].map((reason, index) => (
+              <div key={index} className={styles.reasonCard}>
+                <div className={styles.reasonNumber}>{reason.num}</div>
+                <h3>{reason.title}</h3>
+                <p>{reason.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
-      <section className="main-contact">
-         <div className="contact-container">
-          {/* Contact Form */}
-          <div className="contact-form">
-            <h2>Send a Message</h2>
+      <section className={styles.mainContact}>
+        <div className={styles.contactContainer}>
+          <div className={styles.contactForm}>
+            <h2>Let’s Connect</h2>
             <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input 
-                  type="text" 
-                  name="user_name"
-                  placeholder="Your Name" 
-                  required 
-                  onClick={handleNewForm}
-                />
+              <div className={styles.formGroup}>
+                <input type="text" name="user_name" placeholder="Your Name" required onClick={handleNewForm} disabled={sending} />
               </div>
-              <div className="form-group">
-                <input 
-                  type="email" 
-                  name="user_email"
-                  placeholder="Your Email" 
-                  required 
-                  onClick={handleNewForm}
-                />
+              <div className={styles.formGroup}>
+                <input type="email" name="user_email" placeholder="Your Email" required onClick={handleNewForm} disabled={sending} />
               </div>
-              <div className="form-group">
-                <input 
-                  type="tel" 
-                  name="user_tel"
-                  placeholder="Phone Number" 
-                  onClick={handleNewForm}
-                />
+              <div className={styles.formGroup}>
+                <input type="tel" name="user_tel" placeholder="Phone Number" onClick={handleNewForm} disabled={sending} />
               </div>
-              <div className="form-group">
-                <textarea 
-                  placeholder="Your Message" 
-                  name="user_message"
-                  rows="5" 
-                  required 
-                  onClick={handleNewForm}
-                ></textarea>
+              <div className={styles.formGroup}>
+                <textarea placeholder="Your Message" name="user_message" rows="5" required onClick={handleNewForm} disabled={sending}></textarea>
               </div>
-              <button type="submit" className="submit-btn">
-                {sending ? "Sending...":"send Message"}
+              <button type="submit" className={styles.submitBtn} disabled={sending}>
+                {sending ? "Sending..." : "Send Message"}
               </button>
-              <p className='submitMsg'>{submitMsg}</p>
+              {submitMsg && <p className={styles.submitMsg}>{submitMsg}</p>}
             </form>
-            
-
           </div>
-              <div className="contact-info">
+          <div className={styles.contactInfo}>
             <h2>Get in Touch</h2>
-            <div className="info-card">
-              <div className="info-item">
-                <div className="info-icon">📍</div>
+            <div className={styles.infoCard}>
+              <div className={styles.infoItem}>
+                <div className={styles.infoIcon}>📍</div>
                 <div>
                   <h3>Our Office</h3>
-                  <p> Patna , Bihar</p>
+                  <p>Patna, Bihar, India</p>
                 </div>
               </div>
-              <div className="info-item">
-                <div className="info-icon">📞</div>
+              <div className={styles.infoItem}>
+                <div className={styles.infoIcon}>📞</div>
                 <div>
-                  <h3>Phone Numbers</h3>
+                  <h3>Phone</h3>
                   <p>+91 7079367125</p>
                 </div>
               </div>
-              <div className="info-item">
-                <div className="info-icon">✉️</div>
+              <div className={styles.infoItem}>
+                <div className={styles.infoIcon}>✉️</div>
                 <div>
                   <h3>Email</h3>
                   <p>{process.env.REACT_APP_COMPANY_EMAIL}</p>
                 </div>
               </div>
             </div>
-            
-            <div className="social-links">
+            <div className={styles.socialLinks}>
               <h3>Follow Us</h3>
-              <div className="social-icons">
-                <a href="#facebook"><div className='icon'><img src={fb}alt="facebook" /></div></a>
-                <a href="#twitter"><div className='icon'><img src={insta}alt="insta" /></div></a>
-                <a href="#linkedin"><div className='icon'><img src={x}alt="twitter" /></div></a>
-                <a href="#instagram"><div className='icon'><img src={lnkdn}alt="linkdin" /></div></a>
+              <div className={styles.socialIcons}>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><img src={fb} alt="Facebook" className={styles.icon} /></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><img src={insta} alt="Instagram" className={styles.icon} /></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><img src={x} alt="Twitter" className={styles.icon} /></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><img src={lnkdn} alt="LinkedIn" className={styles.icon} /></a>
               </div>
             </div>
           </div>
-
+        </div>
+      </section>
     </div>
-     </section>
-     </div>
   );
-
 };

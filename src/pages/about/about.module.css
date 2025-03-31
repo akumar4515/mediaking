@@ -1,0 +1,388 @@
+/* About.module.css */
+
+.aboutPage {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f4f7fa;
+}
+
+/* Hero Section */
+.aboutHero {
+  background: linear-gradient(135deg, #007bff 0%, #00c4cc 100%);
+  padding: 8rem 2rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutHero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(30deg);
+  animation: shine 6s infinite linear;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  50% { transform: translateX(100%) rotate(30deg); }
+  100% { transform: translateX(-100%) rotate(30deg); }
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.heroContent.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.heroHighlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  margin-top: 1rem;
+}
+
+.rocketIcon {
+  font-size: 2rem;
+  color: #fff;
+}
+
+/* Story Section */
+.storySection {
+  padding: 6rem 2rem;
+  background: #fff;
+}
+
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.sectionContainer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #007bff;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.storyGrid {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.storyContent {
+  flex: 1;
+}
+
+.storyLead {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.milestones {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.milestoneCard {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.milestoneCard h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.milestoneCard p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.timelineLine {
+  position: absolute;
+  top: 50%;
+  right: -1.5rem;
+  width: 1.5rem;
+  height: 2px;
+  background: #007bff;
+}
+
+.milestoneCard:last-child .timelineLine {
+  display: none;
+}
+
+.storyImage {
+  flex: 1;
+}
+
+.imageFrame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.imageFrame img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.imageFrame:hover img {
+  transform: scale(1.05);
+}
+
+/* Purpose Section (Mission & Vision) */
+.purposeSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.purposeContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.purposeCardMissionCard,
+.purposeCardVisionCard {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.cardContent {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.cardContent.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cardIcon {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.cardHeader h3 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.cardBody p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.missionList {
+  list-style: none;
+  padding: 0;
+}
+
+.missionList li {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.missionList li:before {
+  content: '✔';
+  color: #28a745;
+  position: absolute;
+  left: 0;
+}
+
+.visionPillars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pillar {
+  flex: 1;
+  min-width: 120px;
+  padding: 1rem;
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.pillar h4 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.pillar p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Values Section */
+.valuesSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #83b7ee 0%, #2dc8cd 100%);
+  color: white;
+}
+
+.valuesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.valuesContainer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.valuesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.valueCard {
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.valueCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.valueIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.valueCard h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.valueCard p {
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .aboutHero {
+    padding: 6rem 1rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+
+  .storySection,
+  .purposeSection,
+  .valuesSection {
+    padding: 4rem 1rem;
+  }
+
+  .storyGrid {
+    flex-direction: column;
+  }
+
+  .milestones {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .timelineLine {
+    display: none;
+  }
+
+  .purposeContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .valueCard {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}

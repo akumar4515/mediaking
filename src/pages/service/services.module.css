@@ -1,0 +1,237 @@
+/* Services.module.css */
+
+.servicesPage {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f4f7fa;
+}
+
+/* Hero Section */
+.servicesHero {
+  background: linear-gradient(135deg, #007bff 0%, #00c4cc 100%);
+  padding: 8rem 2rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.servicesHero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(30deg);
+  animation: shine 6s infinite linear;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  50% { transform: translateX(100%) rotate(30deg); }
+  100% { transform: translateX(-100%) rotate(30deg); }
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.heroContent.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.heroContent p {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+/* Services Sections */
+.mainServices,
+.marketingServices,
+.contentServices {
+  padding: 6rem 2rem;
+}
+
+.mainServices {
+  background: #fff;
+}
+
+.marketingServices {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.contentServices {
+  background: #fff;
+}
+
+.servicesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.servicesContainer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.servicesContainer h2 {
+  font-size: 2.5rem;
+  color: #007bff;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.servicesContainer h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #007bff 0%, #00c4cc 100%);
+  border-radius: 2px;
+}
+
+.servicesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.serviceCard {
+  flex: 1;
+  min-width: 280px;
+  max-width: 360px;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.marketingServices .serviceCard,
+.contentServices .serviceCard {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.serviceCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.serviceIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+.serviceCard h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.serviceFeatures {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.serviceFeatures li {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.serviceFeatures li::before {
+  content: '✔';
+  color: #28a745;
+  position: absolute;
+  left: 0;
+}
+
+.serviceCta {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #007bff 0%, #00c4cc 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.serviceCta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .servicesHero {
+    padding: 6rem 1rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+
+  .heroContent p {
+    font-size: 1.2rem;
+  }
+
+  .mainServices,
+  .marketingServices,
+  .contentServices {
+    padding: 4rem 1rem;
+  }
+
+  .servicesContainer h2 {
+    font-size: 2rem;
+  }
+
+  .serviceCard {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .serviceCard h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+
+  .servicesContainer h2 {
+    font-size: 1.8rem;
+  }
+}

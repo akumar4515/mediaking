@@ -1,8 +1,9 @@
 import React from 'react';
-import './about.css';
+import styles from './about.module.css';
 import useScrollAnimation from "../ScrollAnimation";
 import { FaRocket, FaEye, FaLightbulb, FaHandshake, FaLeaf } from 'react-icons/fa';
 import teamImg from '../../assets/aboutus.jpeg';
+
 export const About = () => {
   const [heroRef, heroVisible] = useScrollAnimation();
   const [storyRef, storyVisible] = useScrollAnimation();
@@ -11,49 +12,47 @@ export const About = () => {
   const [valuesRef, valuesVisible] = useScrollAnimation();
 
   return (
-    <div className="about-page" id='about'>
+    <div className={styles.aboutPage} id='about'>
       {/* Hero Section */}
-      <section className="about-hero" ref={heroRef}>
-        <div className={`hero-content ${heroVisible ? "visible" : ""}`}>
+      <section className={styles.aboutHero} ref={heroRef}>
+        <div className={`${styles.heroContent} ${heroVisible ? styles.visible : ""}`}>
           <h1>About Webexprt</h1>
-          <p className="hero-subtitle">Pioneering Digital Excellence Since 2020</p>
-          <div className="hero-highlight">
-            <FaRocket className="rocket-icon" />
-            <span>Empowering Businesses with Technology</span>
+          <p className={styles.heroSubtitle}>Pioneering Digital Excellence Since 2020</p>
+          <div className={styles.heroHighlight}>
+            <FaRocket className={styles.rocketIcon} />
+            <span>Empowering Businesses with Innovation</span>
           </div>
         </div>
       </section>
 
       {/* Our Story Section */}
-      <section className="story-section" ref={storyRef}>
-        <div className={`section-container ${storyVisible ? "visible" : ""}`}>
-          <h2 className="section-title">Our Journey</h2>
-          <div className="story-grid">
-            <div className="story-content">
-              <p className="story-lead">
-                Founded in 2020 by digital enthusiasts, Webexprt began as a passionate startup 
-                with a vision to revolutionize digital solutions. Today, we're a global agency 
-                empowering businesses through innovative technology.At Webexprt, we’re more than a digital solutions provider—we’re architects of the future. Since our inception, we’ve been driven by a singular mission: to turn visionary ideas into dynamic digital experiences that propel businesses forward. In a world where technology evolves at lightning speed, we stand as your trusted partner, blending creativity, technical expertise, and strategic thinking to craft solutions that not only meet today’s demands but anticipate tomorrow’s challenges.
+      <section className={styles.storySection} ref={storyRef}>
+        <div className={`${styles.sectionContainer} ${storyVisible ? styles.visible : ""}`}>
+          <h2 className={styles.sectionTitle}>Our Journey</h2>
+          <div className={styles.storyGrid}>
+            <div className={styles.storyContent}>
+              <p className={styles.storyLead}>
+                Founded in 2020 by digital visionaries, Webexprt started as a small team with big dreams. Today, we’re a global force, crafting innovative solutions that redefine business success in the digital age.
               </p>
-              <div className="milestones">
-                <div className="milestone-card">
+              <div className={styles.milestones}>
+                <div className={styles.milestoneCard}>
                   <h3>2020</h3>
-                  <p>Founded with 3 team members</p>
-                  <div className="timeline-line"></div>
+                  <p>Founded with 3 members</p>
+                  <div className={styles.timelineLine}></div>
                 </div>
-                <div className="milestone-card">
+                <div className={styles.milestoneCard}>
                   <h3>2022</h3>
                   <p>Launched full digital suite</p>
-                  <div className="timeline-line"></div>
+                  <div className={styles.timelineLine}></div>
                 </div>
-                <div className="milestone-card">
+                <div className={styles.milestoneCard}>
                   <h3>2023</h3>
-                  <p>Global expansion begins</p>
+                  <p>Expanded globally</p>
                 </div>
               </div>
             </div>
-            <div className="story-image">
-              <div className="image-frame">
+            <div className={styles.storyImage}>
+              <div className={styles.imageFrame}>
                 <img src={teamImg} alt="Webexprt Team" />
               </div>
             </div>
@@ -62,48 +61,52 @@ export const About = () => {
       </section>
 
       {/* Mission & Vision Sections */}
-      <section className="purpose-section">
-        <div className="purpose-container">
+      <section className={styles.purposeSection}>
+        <div className={styles.purposeContainer}>
           {/* Mission */}
-          <div className="purpose-card mission-card" ref={missionRef}>
-            <div className={`card-content ${missionVisible ? "visible" : ""}`}>
-              <div className="card-header">
-                <FaRocket className="card-icon" />
+          <div className={styles.purposeCardMissionCard} ref={missionRef}>
+            <div className={`${styles.cardContent} ${missionVisible ? styles.visible : ""}`}>
+              <div className={styles.cardHeader}>
+                <FaRocket className={styles.cardIcon} />
                 <h3>Our Mission</h3>
               </div>
-              <div className="card-body">
-                <p>At Webexprt, our mission is to empower businesses of all sizes with transformative digital solutions that unlock growth, foster innovation, and redefine what’s possible. We exist to bridge the gap between visionary ideas and impactful execution, equipping our clients with the tools, strategies, and technologies they need to thrive in an ever-evolving digital world.</p>
-                <ul className="mission-list">
-                  <li><span>🔹 Transform ideas into impactful digital experiences</span></li>
-                  <li><span>🔹 Deliver scalable, future-ready solutions</span></li>
-                  <li><span>🔹 Build lasting client partnerships</span></li>
-                  <li><span>🔹 Combine creativity with cutting-edge technology</span></li>
+              <div className={styles.cardBody}>
+                <p>
+                  We empower businesses with transformative digital solutions that drive growth and innovation, turning ideas into reality with cutting-edge technology.
+                </p>
+                <ul className={styles.missionList}>
+                  <li>Transform ideas into digital success</li>
+                  <li>Deliver scalable solutions</li>
+                  <li>Build strong partnerships</li>
+                  <li>Fuse creativity with tech</li>
                 </ul>
               </div>
             </div>
           </div>
 
           {/* Vision */}
-          <div className="purpose-card vision-card" ref={visionRef}>
-            <div className={`card-content ${visionVisible ? "visible" : ""}`}>
-              <div className="card-header">
-                <FaEye className="card-icon" />
+          <div className={styles.purposeCardVisionCard} ref={visionRef}>
+            <div className={`${styles.cardContent} ${visionVisible ? styles.visible : ""}`}>
+              <div className={styles.cardHeader}>
+                <FaEye className={styles.cardIcon} />
                 <h3>Our Vision</h3>
               </div>
-              <div className="card-body">
-                <p>At Webexprt, we envision a world where every business, regardless of size or industry, harnesses the full potential of technology to create meaningful impact. We strive to be the catalyst for a digital revolution—one where innovation is accessible, seamless, and sustainable, empowering organizations to transcend boundaries and redefine success in the 21st century.</p>
-                <div className="vision-pillars">
-                  <div className="pillar">
+              <div className={styles.cardBody}>
+                <p>
+                  We aim to lead a digital revolution where every business thrives through accessible, sustainable, and impactful technology.
+                </p>
+                <div className={styles.visionPillars}>
+                  <div className={styles.pillar}>
                     <h4>Digital Inclusion</h4>
-                    <p>Empower businesses of all sizes</p>
+                    <p>For all businesses</p>
                   </div>
-                  <div className="pillar">
+                  <div className={styles.pillar}>
                     <h4>Sustainable Tech</h4>
-                    <p>Eco-conscious digital solutions</p>
+                    <p>Eco-friendly solutions</p>
                   </div>
-                  <div className="pillar">
+                  <div className={styles.pillar}>
                     <h4>Global Impact</h4>
-                    <p>Worldwide business empowerment</p>
+                    <p>Worldwide empowerment</p>
                   </div>
                 </div>
               </div>
@@ -113,29 +116,29 @@ export const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="values-section" ref={valuesRef}>
-        <div className={`values-container ${valuesVisible ? "visible" : ""}`}>
-          <h2 className="section-title">Core Values</h2>
-          <div className="values-grid">
-            <div className="value-card">
-              <FaLightbulb className="value-icon" />
+      <section className={styles.valuesSection} ref={valuesRef}>
+        <div className={`${styles.valuesContainer} ${valuesVisible ? styles.visible : ""}`}>
+          <h2 className={styles.sectionTitle}>Core Values</h2>
+          <div className={styles.valuesGrid}>
+            <div className={styles.valueCard}>
+              <FaLightbulb className={styles.valueIcon} />
               <h4>Innovation</h4>
-              <p>Pushing digital boundaries through continuous learning</p>
+              <p>Driving progress through creativity</p>
             </div>
-            <div className="value-card">
-              <FaHandshake className="value-icon" />
+            <div className={styles.valueCard}>
+              <FaHandshake className={styles.valueIcon} />
               <h4>Integrity</h4>
-              <p>Ethical practices in every interaction</p>
+              <p>Honesty in every step</p>
             </div>
-            <div className="value-card">
-              <FaLeaf className="value-icon" />
+            <div className={styles.valueCard}>
+              <FaLeaf className={styles.valueIcon} />
               <h4>Sustainability</h4>
-              <p>Green hosting and eco-conscious solutions</p>
+              <p>Green tech for a better future</p>
             </div>
-            <div className="value-card">
-              <FaRocket className="value-icon" />
+            <div className={styles.valueCard}>
+              <FaRocket className={styles.valueIcon} />
               <h4>Excellence</h4>
-              <p>Premium quality in every deliverable</p>
+              <p>Top-tier quality always</p>
             </div>
           </div>
         </div>

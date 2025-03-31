@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./nav.css";
+import styles from './nav.module.css'; // Changed to CSS Module
 import logo from '../../assets/logo.png';
 
 export const Navigation = () => {
@@ -49,54 +49,56 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className="navbar" aria-label="Main Navigation">
+    <nav className={styles.navbar} aria-label="Main Navigation">
       {/* Logo */}
-      <div className="logo" onClick={() => { handleMenuClick("home"); navigate("/"); }}>
+      <div className={styles.logo} onClick={() => { handleMenuClick("home"); navigate("/"); }}>
         <img src={logo} alt="Company Logo" />
       </div>
 
       {/* Hamburger Menu Icon */}
       <div
-        className={`hamburger ${isMenuOpen ? "open" : ""}`}
+        className={`${styles.hamburger} ${isMenuOpen ? styles.open : ""}`}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Toggle Menu"
         role="button"
         tabIndex={0}
       >
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+        <div className={styles.bar}></div>
+        <div className={styles.bar}></div>
+        <div className={styles.bar}></div>
       </div>
 
       {/* Desktop Navigation */}
-      <ul className="nav-links">
-        <li className={`nav ${nav === "home" ? "active" : ""}`}>
+      <ul className={styles.navLinks}>
+        <li className={`${styles.navItem} ${nav === "home" ? styles.active : ""}`}>
           <a href="/" onClick={(e) => handleLinkClick(e, "/")}>Home</a>
         </li>
-        <li className={`nav ${nav === "about" ? "active" : ""}`}>
+        <li className={`${styles.navItem} ${nav === "about" ? styles.active : ""}`}>
           <a href="/about" onClick={(e) => handleLinkClick(e, "/about")}>About</a>
         </li>
-        <li className={`nav ${nav === "services" ? "active" : ""}`}>
+        <li className={`${styles.navItem} ${nav === "services" ? styles.active : ""}`}>
           <a href="/services" onClick={(e) => handleLinkClick(e, "/services")}>Services</a>
         </li>
-        <li className={`nav ${nav === "contact" ? "active" : ""}`}>
+        <li className={`${styles.navItem} ${nav === "contact" ? styles.active : ""}`}>
           <a href="/contact" onClick={(e) => handleLinkClick(e, "/contact")}>Contact</a>
         </li>
       </ul>
 
       {/* Mobile Sidebar */}
       <div
-        className={`sidebar-overlay ${isMenuOpen ? "active" : ""}`}
+        className={`${styles.sidebarOverlay} ${isMenuOpen ? styles.active : ""}`}
         onClick={() => setIsMenuOpen(false)}
         role="button"
         tabIndex={0}
         aria-label="Close Menu"
       ></div>
-      <div className={`mobile-sidebar ${isMenuOpen ? "open" : ""}`}>
-        <div className="sidebar-header">
-          <div className="logo" onClick={() => { handleMenuClick("home"); navigate("/"); }}>Mediaking</div>
+      <div className={`${styles.mobileSidebar} ${isMenuOpen ? styles.open : ""}`}>
+        <div className={styles.sidebarHeader}>
+          <div className={styles.logo} onClick={() => { handleMenuClick("home"); navigate("/"); }}>
+            <img src={logo} alt="Company Logo" />
+          </div>
           <div
-            className="close-btn"
+            className={styles.closeBtn}
             onClick={() => setIsMenuOpen(false)}
             role="button"
             tabIndex={0}
@@ -105,17 +107,17 @@ export const Navigation = () => {
             &times;
           </div>
         </div>
-        <ul className="sidebar-menu">
-          <li className={`${nav === "home" ? "active" : ""}`}>
+        <ul className={styles.sidebarMenu}>
+          <li className={`${nav === "home" ? styles.active : ""}`}>
             <a href="/" onClick={(e) => { handleMenuClick("home"); handleLinkClick(e, "/"); }}>Home</a>
           </li>
-          <li className={`${nav === "about" ? "active" : ""}`}>
+          <li className={`${nav === "about" ? styles.active : ""}`}>
             <a href="/about" onClick={(e) => { handleMenuClick("about"); handleLinkClick(e, "/about"); }}>About</a>
           </li>
-          <li className={`${nav === "services" ? "active" : ""}`}>
+          <li className={`${nav === "services" ? styles.active : ""}`}>
             <a href="/services" onClick={(e) => { handleMenuClick("services"); handleLinkClick(e, "/services"); }}>Services</a>
           </li>
-          <li className={`${nav === "contact" ? "active" : ""}`}>
+          <li className={`${nav === "contact" ? styles.active : ""}`}>
             <a href="/contact" onClick={(e) => { handleMenuClick("contact"); handleLinkClick(e, "/contact"); }}>Contact</a>
           </li>
         </ul>

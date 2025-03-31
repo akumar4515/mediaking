@@ -1,32 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from './notFound.module.css';
 
 export const NotFound = () => {
   return (
-    <div className="not-found-container" style={{ 
-      textAlign: 'center',
-      padding: '2rem',
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
-      <h1 style={{ fontSize: '4rem', marginBottom: '1rem' }}>404 🕵️♂️</h1>
-      <p style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>
+    <div className={styles.notFoundContainer}>
+      <h1 className={styles.title}>404 🕵️‍♂️</h1>
+      <p className={styles.message}>
         Oops! The page you're looking for has vanished into the void.
       </p>
-      <Link 
-        to="/"
-        style={{
-          textDecoration: 'none',
-          backgroundColor: '#007bff',
-          color: 'white',
-          padding: '0.8rem 1.5rem',
-          borderRadius: '5px',
-          fontSize: '1.1rem'
-        }}
-      >
+      <Link to="/" className={styles.returnButton}>
         Return to Safety
       </Link>
     </div>

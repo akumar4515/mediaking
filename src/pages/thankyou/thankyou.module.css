@@ -1,0 +1,168 @@
+/* ThankYou.module.css */
+
+.thankYouContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f4f7fa 0%, #e9ecef 100%);
+  font-family: 'Arial', sans-serif;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Animation */
+.thankYouContainer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(0, 123, 255, 0.1);
+  transform: rotate(30deg);
+  animation: shine 8s infinite linear;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  50% { transform: translateX(100%) rotate(30deg); }
+  100% { transform: translateX(-100%) rotate(30deg); }
+}
+
+.thankYouCard {
+  background: #fff;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.checkmark {
+  font-size: 4rem;
+  color: #28a745;
+  margin-bottom: 1.5rem;
+  animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.1); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.thankYouCard h1 {
+  font-size: 2.5rem;
+  color: #007bff;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.confirmationMessage {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.nextSteps {
+  margin-bottom: 2rem;
+}
+
+.nextSteps h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.nextSteps ol {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.nextSteps li {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.nextSteps li::before {
+  content: '✔';
+  color: #28a745;
+  position: absolute;
+  left: 0;
+}
+
+.returnHome {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #007bff 0%, #00c4cc 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.returnHome:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .thankYouCard {
+    padding: 2rem;
+  }
+
+  .thankYouCard h1 {
+    font-size: 2rem;
+  }
+
+  .confirmationMessage {
+    font-size: 1rem;
+  }
+
+  .nextSteps h3 {
+    font-size: 1.3rem;
+  }
+
+  .nextSteps li {
+    font-size: 0.9rem;
+  }
+
+  .returnHome {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkmark {
+    font-size: 3rem;
+  }
+
+  .thankYouCard h1 {
+    font-size: 1.8rem;
+  }
+
+  .nextSteps h3 {
+    font-size: 1.2rem;
+  }
+}

@@ -1,18 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useScrollAnimation from '../ScrollAnimation';
-import "./services.css";
+import styles from "./services.module.css";
 
 export const Services = () => {
   const navigate = useNavigate();
-  
-  // Scroll animation hooks
+
   const [heroRef, heroVisible] = useScrollAnimation();
   const [marketingRef, marketingVisible] = useScrollAnimation();
   const [servicesRef, servicesVisible] = useScrollAnimation();
   const [additionalServicesRef, additionalServicesVisible] = useScrollAnimation();
 
-  // Main services data
   const mainServices = [
     {
       s_name: "web-development",
@@ -51,7 +49,7 @@ export const Services = () => {
       ]
     }
   ];
-  
+
   const digitalMarketingServices = [
     {
       s_name: "social-media-marketing",
@@ -90,7 +88,7 @@ export const Services = () => {
       ]
     }
   ];
-  
+
   const contentServices = [
     {
       s_name: "content-creation",
@@ -139,31 +137,31 @@ export const Services = () => {
   };
 
   return (
-    <div className="services-page">
+    <div className={styles.servicesPage}>
       {/* Hero Section */}
-      <section className="services-hero" ref={heroRef}>
-        <div className={`hero-content ${heroVisible ? "visible" : ""}`}>
+      <section className={styles.servicesHero} ref={heroRef}>
+        <div className={`${styles.heroContent} ${heroVisible ? styles.visible : ""}`}>
           <h1>Digital Transformation Services</h1>
           <p>End-to-End Solutions for Modern Businesses</p>
         </div>
       </section>
 
       {/* Main Development Services */}
-      <section className="main-services" ref={servicesRef}>
-        <div className={`services-container ${servicesVisible ? "visible" : ""}`}>
+      <section className={styles.mainServices} ref={servicesRef}>
+        <div className={`${styles.servicesContainer} ${servicesVisible ? styles.visible : ""}`}>
           <h2>Development Services</h2>
-          <div className="services-grid">
+          <div className={styles.servicesGrid}>
             {mainServices.map((service) => (
-              <div key={service.s_name} className="service-card">
-                <div className="service-icon">{service.icon}</div>
+              <div key={service.s_name} className={styles.serviceCard}>
+                <div className={styles.serviceIcon}>{service.icon}</div>
                 <h3>{service.title}</h3>
-                <ul className="service-features">
+                <ul className={styles.serviceFeatures}>
                   {service.features.map((feature, index) => (
                     <li key={index}>{feature}</li>
                   ))}
                 </ul>
                 <button
-                  className="service-cta"
+                  className={styles.serviceCta}
                   onClick={() => handleGetStartedClick(service.s_name)}
                   aria-label={`Get started with ${service.title}`}
                 >
@@ -175,22 +173,22 @@ export const Services = () => {
         </div>
       </section>
 
-      {/* Marketing services */}
-      <section className="marketing-services" ref={marketingRef}>
-        <div className={`services-container ${marketingVisible ? "visible" : ""}`}>
+      {/* Marketing Services */}
+      <section className={styles.marketingServices} ref={marketingRef}>
+        <div className={`${styles.servicesContainer} ${marketingVisible ? styles.visible : ""}`}>
           <h2>Digital Marketing Solutions</h2>
-          <div className="services-grid">
+          <div className={styles.servicesGrid}>
             {digitalMarketingServices.map((service) => (
-              <div key={service.s_name} className="service-card">
-                <div className="service-icon">{service.icon}</div>
+              <div key={service.s_name} className={styles.serviceCard}>
+                <div className={styles.serviceIcon}>{service.icon}</div>
                 <h3>{service.title}</h3>
-                <ul className="service-features">
+                <ul className={styles.serviceFeatures}>
                   {service.features.map((feature, index) => (
                     <li key={index}>{feature}</li>
                   ))}
                 </ul>
                 <button
-                  className="service-cta"
+                  className={styles.serviceCta}
                   onClick={() => handleGetStartedClick(service.s_name)}
                   aria-label={`Get started with ${service.title}`}
                 >
@@ -203,21 +201,21 @@ export const Services = () => {
       </section>
 
       {/* Content Services */}
-      <section className="content-services" ref={additionalServicesRef}>
-        <div className={`services-container ${additionalServicesVisible ? "visible" : ""}`}>
+      <section className={styles.contentServices} ref={additionalServicesRef}>
+        <div className={`${styles.servicesContainer} ${additionalServicesVisible ? styles.visible : ""}`}>
           <h2>Content & Brand Management</h2>
-          <div className="services-grid">
+          <div className={styles.servicesGrid}>
             {contentServices.map((service) => (
-              <div key={service.s_name} className="service-card">
-                <div className="service-icon">{service.icon}</div>
+              <div key={service.s_name} className={styles.serviceCard}>
+                <div className={styles.serviceIcon}>{service.icon}</div>
                 <h3>{service.title}</h3>
-                <ul className="service-features">
+                <ul className={styles.serviceFeatures}>
                   {service.features.map((feature, index) => (
                     <li key={index}>{feature}</li>
                   ))}
                 </ul>
                 <button
-                  className="service-cta"
+                  className={styles.serviceCta}
                   onClick={() => handleGetStartedClick(service.s_name)}
                   aria-label={`Get started with ${service.title}`}
                 >

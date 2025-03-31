@@ -1,14 +1,12 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import fb from '../../assets/facebook.png';
 import insta from '../../assets/instagram.png';
 import lnkdn from '../../assets/linkedin.png';
 import x from '../../assets/twitter.png';
-import useScrollAnimation  from '../ScrollAnimation'; // Import the hook
-import './contact.css'; // Import the CSS file
-import { useState } from 'react';
+import useScrollAnimation from '../ScrollAnimation';
+import styles from './contact.module.css';
 
 export const Contact = () => {
   const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
@@ -17,13 +15,12 @@ export const Contact = () => {
   const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
   const navigate = useNavigate();
 
-  // Scroll animation hooks for each section
   const [heroRef, heroVisible] = useScrollAnimation();
   const [contactRef, contactVisible] = useScrollAnimation();
   const [mapRef, mapVisible] = useScrollAnimation();
 
-  const [submitMsg,setSubmitMsg]=useState("");
-  const [sending,setSending]=useState(false);
+  const [submitMsg, setSubmitMsg] = useState("");
+  const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,76 +52,71 @@ export const Contact = () => {
         publicKey
       );
       setSending(false);
-      navigate('/thankyou')
-      // setSubmitMsg("Thanks For Contacting Us")
-      e.target.user_name.value="";
-      e.target.user_email.value="";
-      e.target.user_tel.value="";
-      e.target.user_message.value="";
+      navigate('/thankyou');
+      e.target.reset(); // Reset form fields
     } catch (error) {
       console.error('Error:', error);
       alert('Failed to send message');
+      setSending(false);
     }
   };
 
   return (
-    <div className="contact-page" id="contact">
+    <div className={styles.contactPage} id="contact">
       {/* Hero Section */}
-      <section className="contact-hero" ref={heroRef}>
-        <div className={`hero-content ${heroVisible ? 'visible' : ''}`}>
+      <section className={styles.contactHero} ref={heroRef}>
+        <div className={`${styles.heroContent} ${heroVisible ? styles.visible : ''}`}>
           <h1>Contact Us</h1>
-          <p>Let's Start Your Digital Journey</p>
+          <p>Let’s Kickstart Your Digital Journey</p>
         </div>
       </section>
 
       {/* Main Contact Section */}
-      <section className="main-contact" ref={contactRef}>
-        <div className={`contact-container ${contactVisible ? 'visible' : ''}`}>
+      <section className={styles.mainContact} ref={contactRef}>
+        <div className={`${styles.contactContainer} ${contactVisible ? styles.visible : ''}`}>
           {/* Contact Form */}
-          <div className="contact-form">
-            <h2>Send a Message</h2>
+          <div className={styles.contactForm}>
+            <h2>Send Us a Message</h2>
             <form onSubmit={handleSubmit}>
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <input type="text" name="user_name" placeholder="Your Name" required />
               </div>
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <input type="email" name="user_email" placeholder="Your Email" required />
               </div>
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <input type="tel" name="user_tel" placeholder="Phone Number" />
               </div>
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <textarea placeholder="Your Message" name="user_message" rows="5" required></textarea>
               </div>
-              <button type="submit" className="submit-btn">
-                {sending ? "Sending...":"send Message"}
+              <button type="submit" className={styles.submitBtn}>
+                {sending ? "Sending..." : "Send Message"}
               </button>
-              <p className='submitMsg'>{submitMsg}</p>
-           
+              <p className={styles.submitMsg}>{submitMsg}</p>
             </form>
-            
           </div>
 
           {/* Contact Info */}
-          <div className="contact-info">
+          <div className={styles.contactInfo}>
             <h2>Get in Touch</h2>
-            <div className="info-card">
-              <div className="info-item">
-                <div className="info-icon">📍</div>
+            <div className={styles.infoCard}>
+              <div className={styles.infoItem}>
+                <div className={styles.infoIcon}>📍</div>
                 <div>
                   <h3>Our Office</h3>
-                  <p>Patna, Bihar</p>
+                  <p>Patna, Bihar, India</p>
                 </div>
               </div>
-              <div className="info-item">
-                <div className="info-icon">📞</div>
+              <div className={styles.infoItem}>
+                <div className={styles.infoIcon}>📞</div>
                 <div>
-                  <h3>Phone Numbers</h3>
+                  <h3>Phone</h3>
                   <p>+91 7079367125</p>
                 </div>
               </div>
-              <div className="info-item">
-                <div className="info-icon">✉️</div>
+              <div className={styles.infoItem}>
+                <div className={styles.infoIcon}>✉️</div>
                 <div>
                   <h3>Email</h3>
                   <p>{process.env.REACT_APP_COMPANY_EMAIL}</p>
@@ -132,28 +124,20 @@ export const Contact = () => {
               </div>
             </div>
 
-            <div className="social-links">
-              <h3>Follow Us</h3>
-              <div className="social-icons">
-                <a href="#facebook">
-                  <div className="icon">
-                    <img src={fb} alt="facebook" />
-                  </div>
+            <div className={styles.socialLinks}>
+              <h3>Connect With Us</h3>
+              <div className={styles.socialIcons}>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <img src={fb} alt="Facebook" className={styles.icon} />
                 </a>
-                <a href="#twitter">
-                  <div className="icon">
-                    <img src={insta} alt="insta" />
-                  </div>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <img src={insta} alt="Instagram" className={styles.icon} />
                 </a>
-                <a href="#linkedin">
-                  <div className="icon">
-                    <img src={x} alt="twitter" />
-                  </div>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <img src={x} alt="Twitter" className={styles.icon} />
                 </a>
-                <a href="#instagram">
-                  <div className="icon">
-                    <img src={lnkdn} alt="linkdin" />
-                  </div>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <img src={lnkdn} alt="LinkedIn" className={styles.icon} />
                 </a>
               </div>
             </div>
@@ -162,13 +146,14 @@ export const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="map-section" ref={mapRef}>
-        <div className={`map-container ${mapVisible ? 'visible' : ''}`}>
+      <section className={styles.mapSection} ref={mapRef}>
+        <div className={`${styles.mapContainer} ${mapVisible ? styles.visible : ''}`}>
           <iframe
-            title="office-location"
-            src="https://maps.google.com/maps?q=123%20Anywhere%20St&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            title="Office Location - Patna, Bihar"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115183.25614359207!2d85.05198186936033!3d25.60829510000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f29937c6070ed1%3A0x424567373dded3e!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1698765432100!5m2!1sen!2sin"
             style={{ border: 0 }}
             allowFullScreen
+            loading="lazy"
           ></iframe>
         </div>
       </section>

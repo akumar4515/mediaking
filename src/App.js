@@ -11,6 +11,7 @@ import { Contact } from './pages/contact/contact.jsx';
 import { ServiceForm } from './pages/serviceForm/serviceForm.jsx';
 import ThankYou from './pages/thankyou/thankYou.jsx';
 import {ServiceDetail} from './pages/serviceInfo/ServiceInfo.jsx';
+import PrivacyPolicy from './pages/privacy/privacy.jsx';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/service-form" element={<ServiceForm/>} />
         <Route path='*' element={<NotFound/>}/>
         <Route path="/service-detail/:s_name" element={<ServiceDetail />} />
+        <Route path="/privacy" element={<PrivacyPolicy/>} />
       </Routes>
       <Footer/>
     </Router>
