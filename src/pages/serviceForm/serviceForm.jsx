@@ -192,7 +192,7 @@ export const ServiceForm = () => {
               <label>Price</label>
               <input
                 type="text"
-                value={`$${formData.price}`}
+                value={`₹${formData.price}`}
                 readOnly
                 className={styles.readOnly}
               />

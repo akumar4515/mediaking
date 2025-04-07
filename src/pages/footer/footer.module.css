@@ -27,6 +27,8 @@
 }
 
 .footerContent {
+    align-items: center;
+    text-align: center;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -40,19 +42,23 @@
 .footerColumn {
   flex: 1;
   min-width: 200px;
-}
+  align-items: center;
+  justify-content: center;
+  }
 
-.footerTitle {
+.footerTitle h3 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
   color: #00c4cc;
+  text-align: center;
 }
 
 .footerText {
   font-size: 1rem;
   color: #d1d8e0;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .copyright {
@@ -85,6 +91,7 @@
 .footerContact {
   list-style: none;
   padding: 0;
+
 }
 
 .footerContact li {
@@ -95,6 +102,7 @@
   margin-bottom: 0.8rem;
   font-size: 1rem;
   color: #d1d8e0;
+  align-self: center;
 }
 
 .footerContact a {
@@ -161,6 +169,7 @@
   transform: scale(1.2);
   color: #00c4cc;
 }
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

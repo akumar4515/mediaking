@@ -68,7 +68,7 @@ export const ServiceDetail = () => {
             <div key={index} className={styles.packageCard}>
               <div className={styles.packageHeader}>
                 <h3>{pkg.name}</h3>
-                <span className={styles.priceTag}>${pkg.price}</span>
+                <span className={styles.priceTag}>₹{pkg.price}</span>
               </div>
               <ul className={styles.packageFeatures}>
                 {pkg.features.map((feature, idx) => (

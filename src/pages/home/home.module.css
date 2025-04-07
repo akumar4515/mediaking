@@ -100,12 +100,13 @@
 .next { right: 1rem; }
 
 /* About Section */
-.aboutSection {
+
+.storySection {
   padding: 6rem 2rem;
   background: #fff;
 }
 
-.aboutContent {
+.sectionContainer {
   max-width: 1200px;
   margin: 0 auto;
   opacity: 0;
@@ -113,59 +114,202 @@
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.aboutContent.visible {
+.sectionContainer.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.aboutContent h2 {
+.sectionTitle {
   font-size: 2.5rem;
   color: #007bff;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 1rem;
-}
-
-.aboutContent p {
-  font-size: 1.2rem;
-  color: #666;
-  text-align: center;
   margin-bottom: 2rem;
 }
 
-.aboutDetails {
+.storyGrid {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
 }
 
-.aboutText {
+.storyContent {
   flex: 1;
 }
+.storyContent p{
+  text-align: justify;
+}
 
-.aboutText h3 {
+.storyLead {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.milestones {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.milestoneCard {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.milestoneCard h3 {
   font-size: 1.8rem;
   color: #333;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.aboutText p {
+.milestoneCard p {
   font-size: 1rem;
-  text-align: left;
   color: #666;
-  line-height: 1.8; /* Increased for better readability */
-  max-width: 600px; /* Limits line length for comfort */
 }
 
-.aboutImage {
+.timelineLine {
+  position: absolute;
+  top: 50%;
+  right: -1.5rem;
+  width: 1.5rem;
+  height: 2px;
+  background: #007bff;
+}
+
+.milestoneCard:last-child .timelineLine {
+  display: none;
+}
+
+.storyImage {
   flex: 1;
 }
 
-.aboutImage img {
-  width: 100%;
+.imageFrame {
+  position: relative;
+  overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
+.imageFrame img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.imageFrame:hover img {
+  transform: scale(1.05);
+}
+
+/* Purpose Section (Mission & Vision) */
+.purposeSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.purposeContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.purposeCardMissionCard,
+.purposeCardVisionCard {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.cardContent {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.cardContent.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cardIcon {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.cardHeader h3 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.cardBody p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.missionList {
+  list-style: none;
+  padding: 0;
+}
+
+.missionList li {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.missionList li:before {
+  content: '✔';
+  color: #28a745;
+  position: absolute;
+  left: 0;
+}
+
+.visionPillars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pillar {
+  flex: 1;
+  min-width: 120px;
+  padding: 1rem;
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.pillar h4 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.pillar p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
 
 /* Services Section */
 .serviceSection {

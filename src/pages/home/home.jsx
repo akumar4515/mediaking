@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "./home.module.css";
 import webImg from '../../assets/web.png';
 import seoImg from '../../assets/seo.webp';
-import aboutImg from '../../assets/about.png';
+
 import ecm from '../../assets/ecm.jpg';
 import ppc from '../../assets/ppc.webp';
 import smm from '../../assets/cm.png';
@@ -31,6 +31,8 @@ import insta from '../../assets/instagram.png';
 import lnkdn from '../../assets/linkedin.png';
 import x from '../../assets/twitter.png';
 import useScrollAnimation from "../ScrollAnimation";
+import { FaRocket, FaEye, FaLightbulb, FaHandshake, FaLeaf } from 'react-icons/fa';
+import teamImg from '../../assets/aboutus.jpeg';
 
 export const Home = () => {
   const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
@@ -39,11 +41,13 @@ export const Home = () => {
   const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
   const navigate = useNavigate();
 
-  const [aboutRef, aboutVisible] = useScrollAnimation();
+  
   const [servicesRef, servicesVisible] = useScrollAnimation();
   const [clientsRef, clientsVisible] = useScrollAnimation();
   const [whyChooseRef, whyChooseVisible] = useScrollAnimation();
-
+  const [storyRef, storyVisible] = useScrollAnimation();
+  const [missionRef, missionVisible] = useScrollAnimation();
+  const [visionRef, visionVisible] = useScrollAnimation();
   const [submitMsg, setSubmitMsg] = useState("");
   const [sending, setSending] = useState(false);
 
@@ -187,25 +191,96 @@ export const Home = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className={styles.aboutSection}>
-  <div ref={aboutRef} className={`${styles.aboutContent} ${aboutVisible ? styles.visible : ""}`}>
-    <h2>About Us</h2>
-    <p>
-      At Webexprt, we’re more than just a digital agency—we’re your partners in turning bold ideas into transformative solutions. With a passion for innovation and a commitment to excellence, we empower businesses to thrive in the digital age through cutting-edge technology and creative expertise.
-    </p>
-    <div className={styles.aboutDetails}>
-      <div className={styles.aboutText}>
-        <h3>Our Mission</h3>
-        <p>
-          Our mission is to bridge the gap between your vision and reality. Whether it’s crafting stunning, responsive websites, building robust mobile apps, or driving growth with tailored marketing strategies, we deliver solutions that are as unique as your business. With over a decade of experience, our team blends technical mastery with creative flair to help you stand out, connect with your audience, and achieve measurable success.
-        </p>
-      </div>
-      <div className={styles.aboutImage}>
-        <img src={aboutImg} alt="About Webexprt" />
-      </div>
-    </div>
-  </div>
-</section>
+
+
+<section className={styles.storySection} ref={storyRef}>
+        <div className={`${styles.sectionContainer} ${storyVisible ? styles.visible : ""}`}>
+          <h2 className={styles.sectionTitle}>Our Journey</h2>
+          <div className={styles.storyGrid}>
+            <div className={styles.storyContent}>
+              <p className={styles.storyLead}>
+                Founded in 2020 by digital visionaries, Webexprt started as a small team with big dreams. Today, we’re a global force, crafting innovative solutions that redefine business success in the digital age.
+              </p>
+              <div className={styles.milestones}>
+                <div className={styles.milestoneCard}>
+                  <h3>2020</h3>
+                  <p>Founded with 3 members</p>
+                  <div className={styles.timelineLine}></div>
+                </div>
+                <div className={styles.milestoneCard}>
+                  <h3>2022</h3>
+                  <p>Launched full digital suite</p>
+                  <div className={styles.timelineLine}></div>
+                </div>
+                <div className={styles.milestoneCard}>
+                  <h3>2023</h3>
+                  <p>Expanded globally</p>
+                </div>
+              </div>
+            </div>
+            <div className={styles.storyImage}>
+              <div className={styles.imageFrame}>
+                <img src={teamImg} alt="Webexprt Team" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision Sections */}
+      <section className={styles.purposeSection}>
+        <div className={styles.purposeContainer}>
+          {/* Mission */}
+          <div className={styles.purposeCardMissionCard} ref={missionRef}>
+            <div className={`${styles.cardContent} ${missionVisible ? styles.visible : ""}`}>
+              <div className={styles.cardHeader}>
+                <FaRocket className={styles.cardIcon} />
+                <h3>Our Mission</h3>
+              </div>
+              <div className={styles.cardBody}>
+                <p>
+                  We empower businesses with transformative digital solutions that drive growth and innovation, turning ideas into reality with cutting-edge technology.
+                </p>
+                <ul className={styles.missionList}>
+                  <li>Transform ideas into digital success</li>
+                  <li>Deliver scalable solutions</li>
+                  <li>Build strong partnerships</li>
+                  <li>Fuse creativity with tech</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Vision */}
+          <div className={styles.purposeCardVisionCard} ref={visionRef}>
+            <div className={`${styles.cardContent} ${visionVisible ? styles.visible : ""}`}>
+              <div className={styles.cardHeader}>
+                <FaEye className={styles.cardIcon} />
+                <h3>Our Vision</h3>
+              </div>
+              <div className={styles.cardBody}>
+                <p>
+                  We aim to lead a digital revolution where every business thrives through accessible, sustainable, and impactful technology.
+                </p>
+                <div className={styles.visionPillars}>
+                  <div className={styles.pillar}>
+                    <h4>Digital Inclusion</h4>
+                    <p>For all businesses</p>
+                  </div>
+                  <div className={styles.pillar}>
+                    <h4>Sustainable Tech</h4>
+                    <p>Eco-friendly solutions</p>
+                  </div>
+                  <div className={styles.pillar}>
+                    <h4>Global Impact</h4>
+                    <p>Worldwide empowerment</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Services Section */}
       <section id="service" className={styles.serviceSection}>
         <div ref={servicesRef} className={`${styles.serviceContent} ${servicesVisible ? styles.visible : ""}`}>

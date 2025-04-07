@@ -3,12 +3,10 @@ import styles from './about.module.css';
 import useScrollAnimation from "../ScrollAnimation";
 import { FaRocket, FaEye, FaLightbulb, FaHandshake, FaLeaf } from 'react-icons/fa';
 import teamImg from '../../assets/aboutus.jpeg';
-
+import aboutImg from '../../assets/about.png';
 export const About = () => {
   const [heroRef, heroVisible] = useScrollAnimation();
-  const [storyRef, storyVisible] = useScrollAnimation();
-  const [missionRef, missionVisible] = useScrollAnimation();
-  const [visionRef, visionVisible] = useScrollAnimation();
+  const [aboutRef, aboutVisible] = useScrollAnimation();
   const [valuesRef, valuesVisible] = useScrollAnimation();
 
   return (
@@ -26,94 +24,44 @@ export const About = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className={styles.storySection} ref={storyRef}>
-        <div className={`${styles.sectionContainer} ${storyVisible ? styles.visible : ""}`}>
-          <h2 className={styles.sectionTitle}>Our Journey</h2>
-          <div className={styles.storyGrid}>
-            <div className={styles.storyContent}>
-              <p className={styles.storyLead}>
-                Founded in 2020 by digital visionaries, Webexprt started as a small team with big dreams. Today, we’re a global force, crafting innovative solutions that redefine business success in the digital age.
-              </p>
-              <div className={styles.milestones}>
-                <div className={styles.milestoneCard}>
-                  <h3>2020</h3>
-                  <p>Founded with 3 members</p>
-                  <div className={styles.timelineLine}></div>
-                </div>
-                <div className={styles.milestoneCard}>
-                  <h3>2022</h3>
-                  <p>Launched full digital suite</p>
-                  <div className={styles.timelineLine}></div>
-                </div>
-                <div className={styles.milestoneCard}>
-                  <h3>2023</h3>
-                  <p>Expanded globally</p>
-                </div>
-              </div>
-            </div>
-            <div className={styles.storyImage}>
-              <div className={styles.imageFrame}>
-                <img src={teamImg} alt="Webexprt Team" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section id="about" className={styles.aboutSection}>
+  <div ref={aboutRef} className={`${styles.aboutWrapper} ${aboutVisible ? styles.slideIn : ""}`}>
+    {/* Intro Section */}
+    <div className={styles.introSection}>
+      <h2>Who We Are</h2>
+      <p>
+  Welcome to Webxprt—a vibrant, forward-thinking team passionately dedicated to shaping the future of your business in an era where digital innovation knows no bounds. We’re not just a digital agency; we’re a collective of innovators, strategists, and creators driven by a shared mission to transform your boldest aspirations into reality with precision, creativity, and an unwavering commitment to excellence. Our story began with a core conviction: that every organization—whether a fledgling startup or an established industry leader—deserves a trusted partner to unlock its unique potential through bespoke digital solutions that captivate and endure. With a rich tapestry of expertise in design, cutting-edge technology, and strategic vision, we embrace every project as a chance to redefine what’s possible, from crafting immersive online experiences that resonate with your audience to developing intelligent systems that streamline your operations, or weaving compelling narratives that amplify your brand’s voice. At Webxprt, we excel at turning ambitious ideas into actionable outcomes, complexity into clarity, and visions into measurable triumphs, all while fostering partnerships grounded in trust, collaboration, and a deep understanding of your goals. We’re here not only to build your digital presence but to empower your journey toward lasting impact and success.
+</p>
+    </div>
 
-      {/* Mission & Vision Sections */}
-      <section className={styles.purposeSection}>
-        <div className={styles.purposeContainer}>
-          {/* Mission */}
-          <div className={styles.purposeCardMissionCard} ref={missionRef}>
-            <div className={`${styles.cardContent} ${missionVisible ? styles.visible : ""}`}>
-              <div className={styles.cardHeader}>
-                <FaRocket className={styles.cardIcon} />
-                <h3>Our Mission</h3>
-              </div>
-              <div className={styles.cardBody}>
-                <p>
-                  We empower businesses with transformative digital solutions that drive growth and innovation, turning ideas into reality with cutting-edge technology.
-                </p>
-                <ul className={styles.missionList}>
-                  <li>Transform ideas into digital success</li>
-                  <li>Deliver scalable solutions</li>
-                  <li>Build strong partnerships</li>
-                  <li>Fuse creativity with tech</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    {/* Purpose Section with Image on Right */}
+    <div className={styles.contentRow}>
+      <div className={styles.textBlock}>
+        <h3>Our Purpose</h3>
+        <p>
+          At Webxprt, our purpose is to empower brands with solutions that inspire, perform, and endure. We believe every business has a unique story to tell, and we’re here to amplify it through exceptional digital experiences. From designing sleek, user-focused websites to developing powerful, scalable mobile apps, we bring your ideas to life with tools and strategies tailored to your needs. Our data-driven marketing approach ensures your message reaches the right audience at the right time, driving measurable growth and lasting connections. With over a decade of experience, we combine technical expertise, creative problem-solving, and a relentless focus on results to help you navigate the complexities of the digital landscape and achieve your boldest ambitions.
+        </p>
+      </div>
+      <div className={styles.imageBlock}>
+        <img src={aboutImg} alt="Webexprt Team Collaborating" className={styles.sideImage} />
+      </div>
+    </div>
 
-          {/* Vision */}
-          <div className={styles.purposeCardVisionCard} ref={visionRef}>
-            <div className={`${styles.cardContent} ${visionVisible ? styles.visible : ""}`}>
-              <div className={styles.cardHeader}>
-                <FaEye className={styles.cardIcon} />
-                <h3>Our Vision</h3>
-              </div>
-              <div className={styles.cardBody}>
-                <p>
-                  We aim to lead a digital revolution where every business thrives through accessible, sustainable, and impactful technology.
-                </p>
-                <div className={styles.visionPillars}>
-                  <div className={styles.pillar}>
-                    <h4>Digital Inclusion</h4>
-                    <p>For all businesses</p>
-                  </div>
-                  <div className={styles.pillar}>
-                    <h4>Sustainable Tech</h4>
-                    <p>Eco-friendly solutions</p>
-                  </div>
-                  <div className={styles.pillar}>
-                    <h4>Global Impact</h4>
-                    <p>Worldwide empowerment</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    {/* Vision Section with Image on Left */}
+    <div className={styles.contentRowReverse}>
+    <div className={styles.textBlock}>
+        <h3>Our Vision</h3>
+        <p>
+          Our vision is to redefine what’s possible in the digital realm and set a new benchmark for excellence. We aspire to be more than a service provider—we aim to be a catalyst for transformation, pushing boundaries with bold creativity and advanced technology. We see a future where businesses of all sizes can harness the full potential of the digital world to innovate, connect, and thrive. By fostering collaboration, embracing emerging trends, and delivering solutions that are both forward-thinking and practical, we’re committed to creating a legacy of impact. Every project we undertake is a step toward building a digital ecosystem where ideas flourish, experiences captivate, and success becomes a shared journey.
+        </p>
+      </div>
+      <div className={styles.imageBlock}>
+        <img src={aboutImg} alt="Webexprt Innovation in Action" className={styles.sideImage} />
+      </div>
+      
+    </div>
+  </div>
+</section>
 
       {/* Values Section */}
       <section className={styles.valuesSection} ref={valuesRef}>
