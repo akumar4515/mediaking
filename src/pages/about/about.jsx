@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './about.module.css';
 import useScrollAnimation from "../ScrollAnimation";
 import { FaRocket, FaEye, FaLightbulb, FaHandshake, FaLeaf } from 'react-icons/fa';
-import teamImg from '../../assets/aboutus.jpeg';
-import aboutImg from '../../assets/about.png';
+import purpose from '../../assets/purpose.jpg';
+import vision from '../../assets/vision.jpg';
 export const About = () => {
   const [heroRef, heroVisible] = useScrollAnimation();
   const [aboutRef, aboutVisible] = useScrollAnimation();
@@ -43,7 +43,7 @@ export const About = () => {
         </p>
       </div>
       <div className={styles.imageBlock}>
-        <img src={aboutImg} alt="Webexprt Team Collaborating" className={styles.sideImage} />
+        <img src={purpose} alt="Webexprt Team Collaborating" className={styles.sideImage} />
       </div>
     </div>
 
@@ -56,7 +56,7 @@ export const About = () => {
         </p>
       </div>
       <div className={styles.imageBlock}>
-        <img src={aboutImg} alt="Webexprt Innovation in Action" className={styles.sideImage} />
+        <img src={vision} alt="Webexprt Innovation in Action" className={styles.sideImage} />
       </div>
       
     </div>
