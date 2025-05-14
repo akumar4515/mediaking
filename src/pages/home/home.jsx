@@ -22,14 +22,12 @@ import cli1 from '../../assets/cli1.webp';
 import cli2 from '../../assets/cli2.png';
 import cli3 from '../../assets/cli3.png';
 import cli4 from '../../assets/cli4.png';
-import cli5 from '../../assets/kpmg.png';
 import softImg from '../../assets/soft.webp';
-import contImg from '../../assets/contImg.jpg';
-import cli6 from '../../assets/apna-clg.png';
 import fb from '../../assets/facebook.png';
 import insta from '../../assets/instagram.png';
 import lnkdn from '../../assets/linkedin.png';
 import x from '../../assets/twitter.png';
+import contImg from '../../assets/contImg.jpg';
 import useScrollAnimation from "../ScrollAnimation";
 import { FaRocket, FaEye, FaLightbulb, FaHandshake, FaLeaf } from 'react-icons/fa';
 import teamImg from '../../assets/aboutus.jpeg';
@@ -318,7 +316,7 @@ export const Home = () => {
         <div ref={clientsRef} className={`${styles.clientsContainer} ${clientsVisible ? styles.visible : ""}`}>
           <h2>Our Valued Clients</h2>
           <div className={styles.clientsFlex}>
-            {[cli1, cli2, cli3, cli4, cli5, cli6].map((client, index) => (
+            {[cli1, cli2, cli3, cli4].map((client, index) => (
               <div key={index} className={styles.clientItem}>
                 <img src={client} alt={`Client ${index + 1}`} />
               </div>
